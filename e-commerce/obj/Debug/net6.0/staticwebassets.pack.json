@@ -1,0 +1,389 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\e-commerce.bundle.scp.css",
+      "PackagePath": "staticwebassets\\e-commerce.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\delete.png",
+      "PackagePath": "staticwebassets\\assets\\delete.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\Icon awesome-check-circle.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\Icon awesome-check-circle.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\Icon feather-heart.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\Icon feather-heart.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\Icon feather-search.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\Icon feather-search.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\Icon feather-user.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\Icon feather-user.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\back-arrow.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\back-arrow.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\burder-menu-icon.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\burder-menu-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\close white.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\close white.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\close.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\close.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\closed-eye.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\closed-eye.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\delete.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\delete.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\down-arrow.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\down-arrow.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\facebook-app-symbol.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\facebook-app-symbol.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\facebook.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\facebook.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\filter.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\filter.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\google.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\google.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\instagram.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\instagram.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\like.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\like.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\listing-item-hover--heart.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\listing-item-hover--heart.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\location.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\location.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\noun-bag-1665853.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\noun-bag-1665853.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\noun-bag-white.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\noun-bag-white.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\noun-shipping-5125530.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\noun-shipping-5125530.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\noun-store-5320839.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\noun-store-5320839.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\pickup.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\pickup.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\plus white.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\plus white.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\straight-right-arrow (1).png",
+      "PackagePath": "staticwebassets\\assets\\icons\\straight-right-arrow (1).png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\straight-right-arrow.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\straight-right-arrow.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\icons\\verrified.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\verrified.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\2022-trends.png",
+      "PackagePath": "staticwebassets\\assets\\images\\2022-trends.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\Mask Group 1.zip",
+      "PackagePath": "staticwebassets\\assets\\images\\Mask Group 1.zip"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\as-seen-on.png",
+      "PackagePath": "staticwebassets\\assets\\images\\as-seen-on.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\bags.png",
+      "PackagePath": "staticwebassets\\assets\\images\\bags.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\classy-twist.png",
+      "PackagePath": "staticwebassets\\assets\\images\\classy-twist.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\dark-background.png",
+      "PackagePath": "staticwebassets\\assets\\images\\dark-background.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\darken.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\darken.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\drykorn-item1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\drykorn-item1.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\drykorn-item2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\drykorn-item2.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\drykorn-item3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\drykorn-item3.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\drykorn-item4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\drykorn-item4.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\drykorn.png",
+      "PackagePath": "staticwebassets\\assets\\images\\drykorn.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\footer-image1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\footer-image1.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\footer-image2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\footer-image2.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\footer-image3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\footer-image3.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\footer-image4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\footer-image4.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\joop-collection-image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\joop-collection-image.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\joop-white.png",
+      "PackagePath": "staticwebassets\\assets\\images\\joop-white.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\joop.png",
+      "PackagePath": "staticwebassets\\assets\\images\\joop.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\left-women.png",
+      "PackagePath": "staticwebassets\\assets\\images\\left-women.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\leo-meets-forest.png",
+      "PackagePath": "staticwebassets\\assets\\images\\leo-meets-forest.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\listing-header.png",
+      "PackagePath": "staticwebassets\\assets\\images\\listing-header.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\listing-item-image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\listing-item-image.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\logo.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\marccain-collection-image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\marccain-collection-image.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\marccain-right-image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\marccain-right-image.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\marccain.png",
+      "PackagePath": "staticwebassets\\assets\\images\\marccain.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\men-item1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\men-item1.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\men-item2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\men-item2.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\men-item3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\men-item3.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\men-item4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\men-item4.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\men.png",
+      "PackagePath": "staticwebassets\\assets\\images\\men.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\modern-classic.png",
+      "PackagePath": "staticwebassets\\assets\\images\\modern-classic.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\new-to-act.png",
+      "PackagePath": "staticwebassets\\assets\\images\\new-to-act.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\new.png",
+      "PackagePath": "staticwebassets\\assets\\images\\new.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\new.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\new.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\our-picks.png",
+      "PackagePath": "staticwebassets\\assets\\images\\our-picks.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\outdoor-boots.png",
+      "PackagePath": "staticwebassets\\assets\\images\\outdoor-boots.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\right-women.png",
+      "PackagePath": "staticwebassets\\assets\\images\\right-women.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\shop-the-look-bag.png",
+      "PackagePath": "staticwebassets\\assets\\images\\shop-the-look-bag.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\shop-the-look-blazer.png",
+      "PackagePath": "staticwebassets\\assets\\images\\shop-the-look-blazer.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\shop-the-look-shoes.png",
+      "PackagePath": "staticwebassets\\assets\\images\\shop-the-look-shoes.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\shop-the-look-top.png",
+      "PackagePath": "staticwebassets\\assets\\images\\shop-the-look-top.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\shop-the-look.png",
+      "PackagePath": "staticwebassets\\assets\\images\\shop-the-look.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\white.png",
+      "PackagePath": "staticwebassets\\assets\\images\\white.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\women-item1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\women-item1.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\women-item2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\women-item2.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\women-item3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\women-item3.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\women-item4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\women-item4.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\women.png",
+      "PackagePath": "staticwebassets\\assets\\images\\women.png"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\assets\\images\\women.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\women.svg"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\css\\colors.css",
+      "PackagePath": "staticwebassets\\css\\colors.css"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\OpenSignin.js",
+      "PackagePath": "staticwebassets\\js\\OpenSignin.js"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\filterVue.js",
+      "PackagePath": "staticwebassets\\js\\filterVue.js"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\index.js",
+      "PackagePath": "staticwebassets\\js\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\listing.js",
+      "PackagePath": "staticwebassets\\js\\listing.js"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\openSigninSmall.js",
+      "PackagePath": "staticwebassets\\js\\openSigninSmall.js"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\signinVue.js",
+      "PackagePath": "staticwebassets\\js\\signinVue.js"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\signupVue.js",
+      "PackagePath": "staticwebassets\\js\\signupVue.js"
+    },
+    {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.e-commerce.props",
+      "PackagePath": "build\\e-commerce.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.e-commerce.props",
+      "PackagePath": "buildMultiTargeting\\e-commerce.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.e-commerce.props",
+      "PackagePath": "buildTransitive\\e-commerce.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.e-commerce.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,271 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="listing-container" id="listing-container">
+    <section class="listing-left">
+        <div class="back-to-pages">
+            <div class="back-to">
+                <img src="assets/icons/back-arrow.png" alt="">
+                <p>Back to Women</p>
+            </div>
+            <div class="back-to">
+                <img src="assets/icons/back-arrow.png" alt="">
+                <p>Back to clothing</p>
+            </div>
+            <div class="back-to">
+                <img src="assets/icons/back-arrow.png" alt="">
+                <p>Back to jackets</p>
+            </div>
+        </div>
+
+        <div class="filter" id="filter">
+            <div class="filter-small-header">
+                <h2>FILTER</h2>
+                <img src="assets/icons/close.png" alt="" id="close_filters">
+            </div>
+            <div class="sort-by">
+                <div class="filter-header" id="sort-by-header">
+                    <h2>Sort by</h2>
+                    <img src="assets/icons/down-arrow.svg" alt="" id="open-sort-by"
+                         style="transform: rotate(0deg); transition: transform 0.5s ease;">
+                </div>
+
+                <div class="sort-by-content" id="sort-by-content">
+                    <p v-on:click="changeCategory('Down Jackets')" :class="{ 'selected': selectedCategory === 'Down Jackets' }">Down Jackets(263)</p>
+                    <p v-on:click="changeCategory('Quilted jackets')" :class="{ 'selected': selectedCategory === 'Quilted jackets' }">Quilted jackets(567)</p>
+                    <p v-on:click="changeCategory('Pea coats and woolen jackets')" :class="{ 'selected': selectedCategory === 'Pea coats and woolen jackets' }">Pea coats and woolen jackets (141)</p>
+                    <p v-on:click="changeCategory('Parkas')" :class="{ 'selected': selectedCategory === 'Parkas' }">Parkas (145)</p>
+                    <p v-on:click="changeCategory('Between-seasons jackets')" :class="{ 'selected': selectedCategory === 'Between-seasons jackets' }">Between-seasons jackets (544)</p>
+                    <p v-on:click="changeCategory('Fur jackets')" :class="{ 'selected': selectedCategory === 'Fur jackets' }">Fur jackets (78)</p>
+                    <p v-on:click="changeCategory('Leather jackets')" :class="{ 'selected': selectedCategory === 'Leather jackets' }">Leather jackets (225)</p>
+                    <p v-on:click="changeCategory('Overshirts')" :class="{ 'selected': selectedCategory === 'Overshirts' }">Overshirts (229)</p>
+                    <p v-on:click="changeCategory('Field jackets')" :class="{ 'selected': selectedCategory === 'Field jackets' }">Field jackets (40)</p>
+                    <p v-on:click="changeCategory('Blousons')" :class="{ 'selected': selectedCategory === 'Blousons' }">Blousons (159)</p>
+                    <p v-on:click="changeCategory('rain jackets')" :class="{ 'selected': selectedCategory === 'rain jackets' }">rain jackets (64)</p>
+                    <p v-on:click="changeCategory('Denimjackets')" :class="{ 'selected': selectedCategory === 'Denimjackets' }">Denimjackets (143)</p>
+                </div>
+            </div>
+
+            <div class="brand-filter">
+                <div class="filter-header" id="brand-header">
+                    <h2>Brand</h2>
+                    <img src="assets/icons/down-arrow.svg" alt="" id="open-brand-filter"
+                         style="transform: rotate(0deg); transition: transform 0.5s ease;">
+                </div>
+                <div class="brand-filter-content" id="brand-filter-content">
+                    <div class="brand-checkbox">
+                        <input type="checkbox" v-on:change="changeBrand(2)">
+                        <p>MARCCAIN</p>
+                    </div>
+                    <div class="brand-checkbox">
+                        <input type="checkbox" v-on:change="changeBrand(1)">
+                        <p>JOOP</p>
+                    </div>
+                    <div class="brand-checkbox">
+                        <input type="checkbox" v-on:change="changeBrand(3)">
+                        <p>DRYKORN</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-filter">
+                <div class="filter-header" id="color-header">
+                    <h2>Color</h2>
+                    <img src="assets/icons/down-arrow.svg" alt="" id="open-color-filter"
+                         style="transform: rotate(0deg); transition: transform 0.5s ease;">
+                </div>
+                <div class="color-filter-content" id="color-filter-content">
+                    <div class="color-filter-row">
+                        <div class="color _fff" v-on:click="changeColor(6)" :class="{ 'selected-color': selectedColor === 6 }"></div>
+                        <div class="color _e3d4a8"></div>
+                        <div class="color _000" v-on:click="changeColor(5)" :class="{ 'selected-color': selectedColor === 5 }"></div>
+                        <div class="color _d92020" v-on:click="changeColor(1)" :class="{ 'selected-color': selectedColor === 1 }"></div>
+                        <div class="color _a60ad4" v-on:click="changeColor(7)" :class="{ 'selected-color': selectedColor === 7 }"></div>
+                        <div class="color _a8b0e3"></div>
+                        <div class="color _002bb9" v-on:click="changeColor(2)" :class="{ 'selected-color': selectedColor === 2 }"></div>
+                        <div class="color _ffbe00" v-on:click="changeColor(4)" :class="{ 'selected-color': selectedColor === 4 }"></div>
+                        <div class="color _002bb9" v-on:click="changeColor(13)" :class="{ 'selected-color': selectedColor === 13 }"></div>
+                        <div class="color _094816" v-on:click="changeColor(3)" :class="{ 'selected-color': selectedColor === 3 }"></div>
+                        <div class="color _5d400e"></div>
+                        <div class="color _ff98b4" v-on:click="changeColor(9)" :class="{ 'selected-color': selectedColor === 9 }"></div>
+                    </div>
+                    <div class="color-filter-row">
+                        <div class="color _f9b700"></div>
+                        <div class="color _21e6e0" v-on:click="changeColor(12)" :class="{ 'selected-color': selectedColor === 12 }"></div>
+                        <div class="color _6e140e"></div>
+                        <div class="color _0f3a72"></div>
+                        <div class="color _3f1092" v-on:click="changeColor(14)" :class="{ 'selected-color': selectedColor === 14 }"></div>
+                        <div class="color _4d165a"></div>
+                        <div class="color _b51919"></div>
+                        <div class="color _ff4343"></div>
+                        <div class="color _4a4a4a" v-on:click="changeColor(11)" :class="{ 'selected-color': selectedColor === 11 }"></div>
+                        <div class="color _d1d1d1"></div>
+                        <div class="color _8d6e32" v-on:click="changeColor(10)" :class="{ 'selected-color': selectedColor === 10 }"></div>
+                        <div class="color _ae7400" v-on:click="changeColor(8)" :class="{ 'selected-color': selectedColor === 8 }"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="size-filter">
+                <div class="filter-header" id="size-header">
+                    <h2>Size</h2>
+                    <img src="assets/icons/down-arrow.svg" alt="" id="open-size-filter"
+                         style="transform: rotate(0deg); transition: transform 0.5s ease;">
+                </div>
+
+                <div class="size-filter-content" id="size-filter-content">
+                    <div class="size-filter-column">
+                        <p v-on:click="changeSize(1)" :class="{ 'selected-size': selectedSize === 1 }">32</p>
+                        <p v-on:click="changeSize(3)" :class="{ 'selected-size': selectedSize === 3 }">36</p>
+                        <p v-on:click="changeSize(5)" :class="{ 'selected-size': selectedSize === 5 }">40</p>
+                        <p v-on:click="changeSize(8)" :class="{ 'selected-size': selectedSize === 8 }">46</p>
+                    </div>
+                    <div class="size-filter-column">
+                        <p v-on:click="changeSize(2)" :class="{ 'selected-size': selectedSize === 2 }">34</p>
+                        <p v-on:click="changeSize(4)" :class="{ 'selected-size': selectedSize === 4 }">38</p>
+                        <p v-on:click="changeSize(6)" :class="{ 'selected-size': selectedSize === 6 }">42</p>
+                        <p>One Size</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-filter">
+                <div class="filter-header" id="price-header">
+                    <h2>Price</h2>
+                    <img src="assets/icons/down-arrow.svg" alt="" id="open-price-filter"
+                         style="transform: rotate(0deg); transition: transform 0.5s ease;">
+                </div>
+
+                <div class="price-filter-content" id="price-filter-content">
+                    <div class="price-slider">
+                        <div id="slider-range">
+                            <div class="slider-values" id="min-value"></div>
+                            <div class="slider-values" id="max-value"></div>
+                        </div>
+                        <div class="slider-values" id="min-value" style="z-index: 20;"></div>
+                        <div class="slider-values" id="max-value"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="material-filter">
+                <div class="filter-header" id="material-header">
+                    <h2>Material</h2>
+                    <img src="assets/icons/down-arrow.svg" alt="" id="open-material-filter"
+                         style="transform: rotate(0deg); transition: transform 0.5s ease;">
+                </div>
+
+                <div class="material-filter-content" id="material-filter-content">
+                    <div class="material-filter-checkbox">
+                        <input type="checkbox" v-on:change="changeMaterial(1)">
+                        <p>100% cotton</p>
+                    </div>
+                    <div class="material-filter-checkbox">
+                        <input type="checkbox" v-on:change="changeMaterial(2)">
+                        <p>Cashmere</p>
+                    </div>
+                    <div class="material-filter-checkbox">
+                        <input type="checkbox" v-on:change="changeMaterial(3)">
+                        <p>Nylon</p>
+                    </div>
+                    <div class="material-filter-checkbox">
+                        <input type="checkbox" v-on:change="changeMaterial(4)">
+                        <p>Knit</p>
+                    </div>
+                    <div class="material-filter-checkbox">
+                        <input type="checkbox" v-on:change="changeMaterial(5)">
+                        <p>Velvet</p>
+                    </div>
+                    <div class="material-filter-checkbox">
+                        <input type="checkbox" v-on:change="changeMaterial(6)">
+                        <p>Tulle</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="apply-filter">
+                <p>APPLY FILTERS</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="listing-right">
+        <div class="listing-header">
+            <h1>Women's Jackets</h1>
+        </div>
+
+        <div class="listing-logo">
+            <img src="assets/images/marccain.png" alt="" class="marccain">
+            <img src="assets/images/joop.png" alt="" class="joop">
+            <img src="assets/images/drykorn.png" alt="" class="drykorn">
+        </div>
+
+        <div class="listing-items" id="listing-items">
+
+            <div class="listing-item" v-for="item in items" :key="item.productID">
+                <div class="listing-item-image">
+                    <img :src="item.imageLink" alt="">
+                    <div class="top-p" v-if="item.new">
+                        <p>NEW</p>
+                    </div>
+                    <div class="listing-item-hover" id="listing-item-hover">
+                        <div class="listing-item-hover-wrapper">
+                            <div class="add-to-favorite">
+                                <img src="assets/icons/listing-item-hover--heart.svg" alt="" class="heart">
+                                <img src="assets/icons/like.svg" alt="" class="like">
+                            </div>
+                            <h2>{{item.brandTitle}} <br /> {{item.productName}}</h2>
+                            <h3>{{item.price}} USD</h3>
+
+                            <div class="color-size-wrapper">
+                                <div class="item-hover-color">
+                                    <h4>COLOR</h4>
+                                    <div class="item-hover-color-container">
+                                        <div class="color"
+                                             v-for="color in item.itemColor"
+                                             v-on:click="selectColor(item, color.id)"
+                                             :class="[getStyleColor(color.id), { 'color-selected': item.shoppingCartData.color === color.id }]"
+                                             :key="color.id">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-hover-size">
+                                    <h4>SIZE</h4>
+                                    <div class="item-hover-size-container">
+                                        <p v-for="size in sizes" v-on:click="selectSize(item, size.id)" :class="{ 'size-selected' : item.shoppingCartData.size == size.id}">{{size.size}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-hover-bottom">
+                                <div class="horizontal-number-input">
+                                    <span class="minus" id="remove-item" v-on:click="decrementItemQuantity(item)">-</span>
+                                    <span class="item-number" id="item-quantity">{{item.shoppingCartData.quantity}}</span>
+                                    <span class="plus" id="add-item" v-on:click="incrementItemQuantity(item)">+</span>
+                                    <div class="shopping-bag">
+                                        <img src="assets/icons/noun-bag-white.svg" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="add-item" v-on:click="addToCart(item)" style="cursor: pointer;">
+                                    <img src="assets/icons/plus white.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1>{{item.brandTitle}}</h1>
+                <h1>{{item.productName}}</h1>
+                <p>{{item.price}} USD</p>
+            </div>
+
+        </div>
+    </section>
+    <script src="js/filterVue.js"></script>
+</div>
+<div class="open-filter" id="listing_filter_open">
+    <img src="assets/icons/filter.png" alt="">
+</div>
+
+
+<script src="~/js/listing.js"></script>

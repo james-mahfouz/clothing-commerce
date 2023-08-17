@@ -1,0 +1,802 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - e_commerce</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/colors.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const { createApp, ref, watchEffect, watch, computed, onMounted } = Vue
+    </script>
+</head>
+<body>
+    <header>
+        <div class="menu-placeholder"></div>
+        <section class="big-menu" id="header">
+            <section class="header-1" id="header-1">
+                <div class="header-1-wrapper">
+
+                    <div class="header-intro">
+                        <img src="assets/icons/noun-shipping-5125530.svg" alt="" />
+                        <p>GET FREE SHIPPING ON ORDERS ABOVE 200 USD</p>
+                    </div>
+
+                    <div class="info-menu">
+                        <p>
+                            <img src="assets/icons/noun-store-5320839.svg" alt="" /> STORES
+                        </p>
+                        <p>NEWSLETTER</p>
+                        <p>ABOUT</p>
+                        <p>CONTACT</p>
+                        <p>GIFTCARD</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="header-2" id="header-2">
+                <div class="cloth-menu">
+                    <p>NEW</p>
+                    <p>MEN</p>
+                    <p id="women-big-menu-open">WOMEN</p>
+                    <p>COLLECTIONS</p>
+                    <p class="sale">SALE</p>
+                </div>
+
+                <div class="small-screen">
+                    <img src="assets/icons/burder-menu-icon.png" alt="" id="open-icon" style="cursor: pointer;">
+                    <img src="assets/icons/noun-bag-1665853.svg" alt="" class="bag-small popover-trigger"
+                         style="cursor: pointer;">
+                    <div class="popover-content">
+                        <h1>Your shoppping bag(2)</h1>
+
+                        <div class="popover-content-wrapper" id="shopping-bag">
+                            <div class="shopping-bag-item" v-for="item in cartItem">
+                                <div class="shopping-bag-item-left">
+                                    <img :src="item.image" alt="">
+                                </div>
+                                <div class="shopping-bag-item-right">
+                                    <h2>{{item.productBrand}} <br /> {{item.productTitle}}</h2>
+                                    <h4>{{item.price}} USD</h4>
+                                    <div class="color-size">
+                                        <h5>color</h5>
+                                        <div :class="getStyleColor(item.color.id)"></div>
+                                        <h5>Size</h5>
+                                        <p>34</p>
+                                    </div>
+                                    <div class="shopping-bag-item-bottom-wrapper">
+                                        <div class="horizontal-number-input-shopping">
+                                            <span class="minus" v-on:click="decrementItemQuantity(item)">-</span>
+                                            <span class="item-number" id="shopping-item-quantity">0</span>
+                                            <span class="plus" v-on:click="incrementItemQuantity(item)">+</span>
+                                        </div>
+
+                                        <div class="delete-item">
+                                            <img src="assets/icons/delete.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @* <div class="shopping-bag-item">
+                            <div class="shopping-bag-item-left">
+                            <img src="assets/images/listing-item-image.png" alt="">
+                            </div>
+                            <div class="shopping-bag-item-right">
+                            <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
+                            <h4>810 USD</h4>
+                            <div class="color-size">
+                            <h5>color</h5>
+                            <div class="white"></div>
+                            <h5>Size</h5>
+                            <p>34</p>
+                            </div>
+                            <div class="shopping-bag-item-bottom-wrapper">
+                            <div class="horizontal-number-input-shopping">
+                            <span class="minus" id="shopping-remove-item">-</span>
+                            <span class="item-number" id="shopping-item-quantity">0</span>
+                            <span class="plus" id="shopping-add-item">+</span>
+                            </div>
+
+                            <div class="delete-item">
+                            <img src="assets/icons/delete.png" alt="">
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="shopping-bag-item">
+                            <div class="shopping-bag-item-left">
+                            <img src="assets/images/listing-item-image.png" alt="">
+                            </div>
+                            <div class="shopping-bag-item-right">
+                            <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
+                            <h4>810 USD</h4>
+                            <div class="color-size">
+                            <h5>color</h5>
+                            <div class="white"></div>
+                            <h5>Size</h5>
+                            <p>34</p>
+                            </div>
+                            <div class="shopping-bag-item-bottom-wrapper">
+                            <div class="horizontal-number-input-shopping">
+                            <span class="minus" id="shopping-remove-item">-</span>
+                            <span class="item-number" id="shopping-item-quantity">0</span>
+                            <span class="plus" id="shopping-add-item">+</span>
+                            </div>
+
+                            <div class="delete-item">
+                            <img src="assets/icons/delete.png" alt="">
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="shopping-bag-item">
+                            <div class="shopping-bag-item-left">
+                            <img src="assets/images/listing-item-image.png" alt="">
+                            </div>
+                            <div class="shopping-bag-item-right">
+                            <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
+                            <h4>810 USD</h4>
+                            <div class="color-size">
+                            <h5>color</h5>
+                            <div class="white"></div>
+                            <h5>Size</h5>
+                            <p>34</p>
+                            </div>
+                            <div class="shopping-bag-item-bottom-wrapper">
+                            <div class="horizontal-number-input-shopping">
+                            <span class="minus" id="shopping-remove-item">-</span>
+                            <span class="item-number" id="shopping-item-quantity">0</span>
+                            <span class="plus" id="shopping-add-item">+</span>
+                            </div>
+
+                            <div class="delete-item">
+                            <img src="assets/icons/delete.png" alt="">
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="shopping-bag-item">
+                            <div class="shopping-bag-item-left">
+                            <img src="assets/images/listing-item-image.png" alt="">
+                            </div>
+                            <div class="shopping-bag-item-right">
+                            <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
+                            <h4>810 USD</h4>
+                            <div class="color-size">
+                            <h5>color</h5>
+                            <div class="white"></div>
+                            <h5>Size</h5>
+                            <p>34</p>
+                            </div>
+                            <div class="shopping-bag-item-bottom-wrapper">
+                            <div class="horizontal-number-input-shopping">
+                            <span class="minus" id="shopping-remove-item">-</span>
+                            <span class="item-number" id="shopping-item-quantity">0</span>
+                            <span class="plus" id="shopping-add-item">+</span>
+                            </div>
+
+                            <div class="delete-item">
+                            <img src="assets/icons/delete.png" alt="">
+                            </div>
+                            </div>
+                            </div>
+                            </div> *@
+                        </div>
+
+                        <div class="shopping-bag-footer1">
+                            <h2>Total</h2>
+                            <h2>1200 USD</h2>
+                        </div>
+
+                        <div class="shopping-bag-footer2">
+                            <h2>CHECKOUT</h2>
+                        </div>
+                    </div>
+                </div>
+
+
+                <section class="small-screen-menu" id="small-screen-menu">
+                    <div id="initial-menu">
+                        <div class="menu-header">
+                            <div class="menu-header-left">
+                                <div id="openSigninSmall">
+                                    <img src="assets/icons/Icon feather-user.svg" alt="" class="small-user-menu" v-on:click="getUserSmall"
+                                         id="open-account" style="cursor: pointer;">
+                                    <div class="account-menu-display" id="account-menu-display">
+                                        <h1>{{userName}} {{userLName}}</h1>
+                                        <p>EDIT ACCOUNT</p>
+                                        <p>ADDRESS BOOK</p>
+                                        <P>ORDER HISTORY</P>
+                                        <p>LIKED ITEMS</p>
+                                        <h2 v-on:click="logout">LOGOUT</h2>
+                                    </div>
+                                    <script src="js/openSigninSmall.js"></script>
+                                </div>
+                                <img src="assets/icons/Icon feather-heart.svg" alt="" class="small-heart-menu"
+                                     style="cursor: pointer;">
+                            </div>
+                            <div class="menu-header-right">
+                                <img src="assets/icons/close.png" alt="" class="small-close-menu" id="close-icon">
+                            </div>
+                        </div>
+
+                        <div class="small-cloth-menu">
+                            <p class="small-cloth-menu-new">NEW</p>
+                            <p>MEN</p>
+                            <p id="go-women">WOMEN</p>
+                            <p>COLLECTIONS</p>
+                            <p class="sale">SALE</p>
+                        </div>
+
+                        <div class="small-info-menu">
+                            <p style="margin-top: 0px;">
+                                <img src="assets/icons/noun-store-5320839.svg" alt="" /> STORES
+                            </p>
+                            <p>NEWSLETTER</p>
+                            <p>ABOUT</p>
+                            <p>CONTACT</p>
+                            <p style="margin-bottom: 0px;">GIFTCARD</p>
+                        </div>
+
+                        <div class="small-policies-menu">
+                            <p style="margin-top: 0px;">COOKIES POLICY</p>
+                            <p>PRIVACY POLICY</p>
+                            <p>TERMS & CONDITIONS</p>
+                            <p>RETURNS, REFUNDS & STORE CREDITS</p>
+                            <p style="margin-bottom: 0px;">REFERERS TRACKING & COMMISSION</p>
+                        </div>
+                    </div>
+
+                    <div id="women-menu">
+                        <div class="women-menu-header">
+                            <img src="assets/icons/back-arrow.png" alt="" id="back-arrow">
+                            <p>WOMEN</p>
+                        </div>
+
+                        <div class="women-menu-option">
+                            <p style="margin-top: 100px;">New</p>
+                            <p id="go-clothing">Clothing</p>
+                            <p>Shoes</p>
+                            <p>Jewelry</p>
+                            <p>Accessories</p>
+                            <p>Sports</p>
+                            <p>Sale</p>
+                            <p>Brands</p>
+                            <p>Fall Season</p>
+                        </div>
+                    </div>
+
+                    <div id="women-clothing-menu">
+                        <div class="women-menu-header">
+                            <img src="assets/icons/back-arrow.png" alt="" id="clothing-back-arrow">
+                            <p>WOMEN / CLOTHING</p>
+                        </div>
+
+                        <div class="clothing-body">
+                            <div class="clothing-title">
+                                <p>Clothing</p>
+                            </div>
+                            <div class="clothing-table">
+                                <table>
+                                    <tr>
+                                        <td>Blazer</td>
+                                        <td>Skirts</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Blouses & Tunics</td>
+                                        <td>Shirt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Business Combination</td>
+                                        <td>Sportswear</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pants</td>
+                                        <td>Rope</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jackets</td>
+                                        <td>Socks</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jeans</td>
+                                        <td>Sweatshirts & Sweat Jackets</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jumpsuits</td>
+                                        <td>Costumes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dresses</td>
+                                        <td>Laundry</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coats</td>
+                                        <td>West</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="bottom-clothing">
+                                                <h1 class="bottom-clothing-body-left-header">Top Brands</h1>
+                                                <p>MARCCAIN</p>
+                                                <p>JOOP</p>
+                                                <p>DRYKORN</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="bottom-clothing">
+                                                <h1>Shop By Look</h1>
+                                                <p>Call it Pink!</p>
+                                                <p>Classy Twist</p>
+                                                <p>Though Girls!</p>
+                                                <p>Soft Power</p>
+                                                <p>Leo Meets Forest</p>
+                                                <p>New Chili Club</p>
+                                                <p>New Black & Light</p>
+                                                <p>New Comfy Softness</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="winter-bestsellers">
+                                <div class="winter-bestsellers-side">
+                                    <img src="assets/images/left-women.png" alt="">
+                                    <p>WINTER LOOKS</p>
+                                </div>
+                                <div class="winter-bestsellers-side">
+                                    <img src="assets/images/right-women.png" alt="">
+                                    <p>BESTSELLERS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="logo">
+                    <img src="assets/images/logo.svg" alt="">
+                </div>
+
+                <div class="account-menu" id="openSignin">
+                    <img src="assets/icons/noun-bag-1665853.svg" alt="" class="popover-trigger">
+
+                    <div class="popover-content" id="ShoppingCartItems">
+                        <h1>Your shoppping bag({{cartItems.length}})</h1>
+
+                        <div class="popover-content-wrapper">
+                            <div class="shopping-bag-item" v-for="item in cartItems">
+                                <div class="shopping-bag-item-left">
+                                    <img :src="item.image" alt="">
+                                </div>
+                                <div class="shopping-bag-item-right">
+                                    <h2>{{item.productBrand}} <br /> {{item.productTitle}}</h2>
+                                    <h4>{{item.price}} USD</h4>
+                                    <div class="color-size">
+                                        <h5>color</h5>
+                                        <div :class="getStyleColor(item.color.id)" class="cart-color"></div>
+                                        <h5>Size</h5>
+                                        <p>{{item.size.sizeNumber}}</p>
+                                    </div>
+                                    <div class="shopping-bag-item-bottom-wrapper">
+                                        <div class="horizontal-number-input-shopping">
+                                            <span class="minus" v-on:click="decrementItemQuantity(item)">-</span>
+                                            <span class="item-number" id="shopping-item-quantity">{{item.quantity}}</span>
+                                            <span class="plus" v-on:click="incrementItemQuantity(item)">+</span>
+                                        </div>
+
+                                        <div class="delete-item">
+                                            <img src="assets/icons/delete.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @* <div class="shopping-bag-item">
+                                <div class="shopping-bag-item-left">
+                                    <img src="assets/images/listing-item-image.png" alt="">
+                                </div>
+                                <div class="shopping-bag-item-right">
+                                    <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
+                                    <h4>810 USD</h4>
+                                    <div class="color-size">
+                                        <h5>color</h5>
+                                        <div class="white"></div>
+                                        <h5>Size</h5>
+                                        <p>34</p>
+                                    </div>
+                                    <div class="shopping-bag-item-bottom-wrapper">
+                                        <div class="horizontal-number-input-shopping">
+                                            <span class="minus" id="shopping-remove-item">-</span>
+                                            <span class="item-number" id="shopping-item-quantity">0</span>
+                                            <span class="plus" id="shopping-add-item">+</span>
+                                        </div>
+
+                                        <div class="delete-item">
+                                            <img src="assets/icons/delete.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shopping-bag-item">
+                                <div class="shopping-bag-item-left">
+                                    <img src="assets/images/listing-item-image.png" alt="">
+                                </div>
+                                <div class="shopping-bag-item-right">
+                                    <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
+                                    <h4>810 USD</h4>
+                                    <div class="color-size">
+                                        <h5>color</h5>
+                                        <div class="white"></div>
+                                        <h5>Size</h5>
+                                        <p>34</p>
+                                    </div>
+                                    <div class="shopping-bag-item-bottom-wrapper">
+                                        <div class="horizontal-number-input-shopping">
+                                            <span class="minus" id="shopping-remove-item">-</span>
+                                            <span class="item-number" id="shopping-item-quantity">0</span>
+                                            <span class="plus" id="shopping-add-item">+</span>
+                                        </div>
+
+                                        <div class="delete-item">
+                                            <img src="assets/icons/delete.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shopping-bag-item">
+                                <div class="shopping-bag-item-left">
+                                    <img src="assets/images/listing-item-image.png" alt="">
+                                </div>
+                                <div class="shopping-bag-item-right">
+                                    <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
+                                    <h4>810 USD</h4>
+                                    <div class="color-size">
+                                        <h5>color</h5>
+                                        <div class="white"></div>
+                                        <h5>Size</h5>
+                                        <p>34</p>
+                                    </div>
+                                    <div class="shopping-bag-item-bottom-wrapper">
+                                        <div class="horizontal-number-input-shopping">
+                                            <span class="minus" id="shopping-remove-item">-</span>
+                                            <span class="item-number" id="shopping-item-quantity">0</span>
+                                            <span class="plus" id="shopping-add-item">+</span>
+                                        </div>
+
+                                        <div class="delete-item">
+                                            <img src="assets/icons/delete.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shopping-bag-item">
+                                <div class="shopping-bag-item-left">
+                                    <img src="assets/images/listing-item-image.png" alt="">
+                                </div>
+                                <div class="shopping-bag-item-right">
+                                    <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
+                                    <h4>810 USD</h4>
+                                    <div class="color-size">
+                                        <h5>color</h5>
+                                        <div class="white"></div>
+                                        <h5>Size</h5>
+                                        <p>34</p>
+                                    </div>
+                                    <div class="shopping-bag-item-bottom-wrapper">
+                                        <div class="horizontal-number-input-shopping">
+                                            <span class="minus" id="shopping-remove-item">-</span>
+                                            <span class="item-number" id="shopping-item-quantity">0</span>
+                                            <span class="plus" id="shopping-add-item">+</span>
+                                        </div>
+
+                                        <div class="delete-item">
+                                            <img src="assets/icons/delete.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> *@
+
+                        </div>
+
+                        <div class="shopping-bag-footer1">
+                            <h2>Total</h2>
+                            <h2>1200 USD</h2>
+                        </div>
+
+                        <div class="shopping-bag-footer2">
+                            <h2>CHECKOUT</h2>
+                        </div>
+
+                    </div>
+                    <img src="assets/icons/Icon feather-user.svg" alt="" id="open-signin" v-on:click="getUser">
+                    <div class="account-menu-display-big" id="account-menu-display-big">
+                        <h1>{{userName}} {{userLName}}.</h1>
+                        <p>EDIT ACCOUNT</p>
+                        <p>ADDRESS BOOK</p>
+                        <P>ORDER HISTORY</P>
+                        <p>LIKED ITEMS</p>
+                        <h2 v-on:click="logout">LOGOUT</h2>
+                    </div>
+                    <img src="assets/icons/Icon feather-heart.svg" alt="" class="like-icon">
+                    <div class="search">
+                        <input type="text" placeholder="SEARCH">
+                    </div>
+                    <script src="/js/OpenSignin.js"></script>
+                </div>
+            </section>
+        </section>
+
+        <section class="signin-container">
+            <div class="signin" id="signin">
+                <div class="signin-wrapper">
+                    <div class="signin-form">
+                        <div class="signin-header">
+                            <h1>Sign in</h1>
+                            <img src="assets/icons/close.png" alt="" class="close-signin">
+                        </div>
+                        <label for="">Email</label>
+                        <input v-model="SigninEmail" type="text" style="margin-bottom: 13.39px;">
+                        <label for="">Password</label>
+                        <div class="password-login">
+                            <input v-model="SigninPassword" type="password" style="width: 100%;">
+                        </div>
+                        <p>Forgot your password</p>
+                        <button type="submit" v-on:click="signin">SIGN IN</button>
+                    </div>
+                    <p>or</p>
+                    <div class="signin-methods">
+                        <button class="signin-google">
+                            <img src="assets/icons/google.svg" alt="">
+                        </button>
+                        <button class="signin-facebook">
+                            <img src="assets/icons/facebook.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+                <script src="~/js/signinVue.js" type="module"> </script>
+            </div>
+            <div class="create-an-account">
+                <div class="close-sign-in">
+                    <img src="assets/icons/close white.svg" alt="" class="close-signin" style="cursor:pointer;">
+                </div>
+                <div class="create-an-account-container">
+                    <div class="create-an-account-wrapper">
+                        <h1>Create an account</h1>
+                        <button class="signup-button" id="open-signup">SIGNUP</button>
+                        <h2>Checkout as a guest</h2>
+                        <label for="">Email</label>
+                        <input type="text">
+                        <button>CHECKOUT</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="signup-container">
+            <div class="signup">
+                <div class="signup-header">
+                    <h1>Create an account</h1>
+                    <img src="assets/icons/close.png" alt="" class="close-signin">
+                </div>
+                <form id="signup-form" action="" method="get">
+                    <div class="signup-row">
+                        <div class="inputfield">
+                            <label for="">First name</label>
+                            <input type="text" v-model="fName" id="firstname" name="firstname" required minlength="3">
+                        </div>
+                        <div class="inputfield">
+                            <label for="">Last name</label>
+                            <input type="text" v-model="lName" id="lastname" name="lastname" required minlength="3">
+                        </div>
+                    </div>
+
+                    <div class="signup-row">
+                        <div class="phone-inputfield-container">
+                            <div class="inputfield">
+                                <label for="">Phone number</label>
+                                <div class="phone-container" required
+                                     style="display: flex; flex-wrap: nowrap; width: 100%; justify-content: space-between;">
+                                    <input id="phone" v-model="phoneNumber" type="tel" name="phone" style="width: 100%; padding-right: 0;" />
+                                    <input type="submit" class="btn" value="Verify" name="verify"
+                                           style="padding: 0; width: 20%; text-align: center; " required />
+                                </div>
+                            </div>
+                            <div class="sms-code">
+                                <label for="">Enter The Code Sent To you By SMS</label>
+                                <div class="sms-code-inputs">
+                                    <div class="inputs">
+                                        <input type="number" name="sms-number">
+                                        <input type="number" name="sms-number">
+                                        <input type="number" name="sms-number">
+                                        <input type="number" name="sms-number">
+                                    </div>
+                                    <img src="assets/icons/Icon awesome-check-circle.svg" alt="">
+                                    <input type="text" id="timeInput" name="timeInput" placeholder="00:00"
+                                           pattern="^([01]?[0-9]|2[0-3]):[0-5][0-9]$" maxlength="5">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputfield">
+                            <label for="">Email</label>
+                            <input type="email" v-model="signupEmail" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="signup-row">
+                        <div class="inputfield">
+                            <label for="">Password</label>
+                            <input type="password" v-model="signupPassword" id="password" name="password" required minlength="5">
+                        </div>
+                        <div class="inputfield">
+                            <label for="confirm_password">Confirm password</label>
+                            <input type="password" v-model="confPassword" id="confirm_password" name="confirm_password" required minlength="5">
+                        </div>
+                    </div>
+                    <div class="checkbox" style="margin-bottom: 5px;">
+                        <input type="checkbox" id="newslettter" name="newslettter">
+                        <p>I Would Like To Receive Product Updates, News And Promotional Emails From AL BON</p>
+                    </div>
+                    <div class="checkbox" style="margin-bottom: 42px;">
+                        <div class="policy">
+                            <input type="checkbox" id="terms_and_condition" name="terms_and_condition" required>
+                        </div>
+                        <p>
+                            By Signing Up, You Agree To Our
+                            <i class="underline">Terms & Conditions</i>
+                        </p>
+                    </div>
+
+                    <button type="submit" v-on:click.prevent="signup" form="signup-form">SIGNUP</button>
+                    <script src="~/js/signupVue.js" type="module"> </script>
+                </form>
+            </div>
+        </section>
+
+        <section class="header-2-hover-menu" id="big-menu">
+            <div class="women-clothing-option">
+                <h4>New</h4>
+                <h4 id="open-clothing">Clothing</h4>
+                <h4>Shoes</h4>
+                <h4>Jewelery</h4>
+                <h4>Accessories</h4>
+                <h4>Sports</h4>
+                <h4>Sale</h4>
+                <h4>Brands</h4>
+                <h4>Fall Season</h4>
+            </div>
+            <div class="header-2-hover-menu-underline"></div>
+            <div class="header-2-hover-menu-content">
+                <div class="clothing-table">
+                    <div class="clothing-title">
+                        <p>Clothing</p>
+                    </div>
+                    <div class="clothing-table-table">
+                        <div class="clothing-table-column">
+                            <p>Blazers</p>
+                            <p>Blouses & Tunics</p>
+                            <p>Combinations</p>
+                            <p>Pants</p>
+                            <p>Jackets</p>
+                            <p>Jeans</p>
+                            <p>Jumpsuits</p>
+                            <p>Dresses</p>
+                            <p>Coats</p>
+                        </div>
+                        <div class="clothing-table-column">
+                            <p>Skirts</p>
+                            <p>Shirt</p>
+                            <p>Sportswear</p>
+                            <p>Rope</p>
+                            <p>Socks</p>
+                            <p>Sweatshirts & Sweat Jackets</p>
+                            <p>Costumes</p>
+                            <p>Laundry</p>
+                            <p>West</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clothing-table">
+                    <div class="clothing-title-2">
+                        <p>Clothing</p>
+                        <p>Shop By Look</p>
+                    </div>
+
+                    <div class="clothing-table-table">
+                        <div class="clothing-table-column no-space-between">
+                            <p>MARCCAIN</p>
+                            <p>JOOP</p>
+                            <p>DRYKORN</p>
+                        </div>
+                        <div class="clothing-table-column">
+                            <p>Call It Pink!</p>
+                            <p>Classy Twist</p>
+                            <p>Though Girls!</p>
+                            <p>Soft Power</p>
+                            <p>Leo Meets Forest</p>
+                            <p>New Chili Club</p>
+                            <p>New Black & Light</p>
+                            <p>New Comfy Softness</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="winter-bestsellers">
+                    <div class="winter-bestsellers-side">
+                        <img src="assets/images/left-women.png" alt="">
+                        <p>WINTER LOOKS</p>
+                    </div>
+                    <div class="winter-bestsellers-side">
+                        <img src="assets/images/right-women.png" alt="">
+                        <p>BESTSELLERS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <section class="footer">
+            <div class="footer-left">
+                <div class="footer-left-column footer-left-column1">
+                    <p>NEW</p>
+                    <p>MEN</p>
+                    <p>WOMEN</p>
+                    <p>COLLECTIONS</p>
+                    <p>ABOUT</p>
+                    <p>CONTACT</p>
+                    <p>MY ACCOUNT</p>
+                </div>
+                <div class="footer-left-column">
+                    <p>GIFT CARD</p>
+                    <p>STORE LOCATOR</p>
+                    <p>COOKIES POLICY</p>
+                    <p>PRIVACY POLICY</p>
+                    <p>TERMS & CONDITIONS</p>
+                    <p>RETURNS, REFUNDS & STORE CREDITS</p>
+                    <p>REFERERS TRACKING & COMMISSION</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-right-content-width">
+                    <h1>Subscribe</h1>
+                    <div>
+                        <div class="right-footer-label">
+                            <label for="">EMAIL</label>
+                            <img src="assets/icons/straight-right-arrow.png" alt="">
+                        </div>
+                        <div class="footer-subscribe-input">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="social-media">
+                        <div class="social-media-logo">
+                            <img src="assets/icons/instagram.png" alt="">
+                            <img src="assets/icons/facebook-app-symbol.png" alt="">
+                        </div>
+                        <p>ALL RIGHTS RESERVED.2022 <br /> BY KOEIN</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
