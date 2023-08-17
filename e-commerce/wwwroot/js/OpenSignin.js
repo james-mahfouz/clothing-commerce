@@ -58,6 +58,7 @@ createApp({
             }
         }
 
+
         function getStyleColor(colorID) {
             if (colorID == 1) {
                 return "_d92020"
