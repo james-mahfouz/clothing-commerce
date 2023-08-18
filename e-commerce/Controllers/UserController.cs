@@ -59,7 +59,8 @@ namespace e_commerce.Controllers
                     Size = cart.ProductStyle.Size,
                     Image = cart.ProductStyle.ProductImageLink,
                     Price = cart.ProductStyle.Product.Price,
-                    Quantity = cart.ItemQuantity
+                    Quantity = cart.ItemQuantity,
+                    cartId = cart.ID
                 })
                 .ToListAsync();
             bool isEmpty = !shoppingCartItems.Any();
@@ -140,5 +141,29 @@ namespace e_commerce.Controllers
                 return StatusCode(500, $"an error occured: {ex.Message}");
             }
         }
+
+        [HttpPost("remove_product_from_cart/{ProductId}"), Authorize]
+        public async Task<IActionResult> RemoveFromCart(int ProductId)
+        {
+            try
+            {
+                var cartItem = await _context.ShoppingCarts.FindAsync(ProductId);
+
+                if (cartItem == null)
+                {
+                    return NotFound("Item not found in the cart");
+                }
+
+                _context.ShoppingCarts.Remove(cartItem);
+                await _context.SaveChangesAsync();
+
+                return Ok("Product style removed from the shopping cart");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"an error occured: {ex.Message}");
+            }
+        }
+
     }
 }

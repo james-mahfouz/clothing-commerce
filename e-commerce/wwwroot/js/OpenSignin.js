@@ -41,6 +41,7 @@ createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
+                console.log(response)
                 cartItems.value = response.data
             } catch (e) {
                 console.log(e)
@@ -55,6 +56,21 @@ createApp({
         function decrementItemQuantity(item) {
             if (item.quantity && item.quantity > 0) {
                 item.quantity--;
+            }
+        }
+
+        async function removeFromCart(item) {
+            try {
+                console.log(item.cartId)
+                const response = await axios.post(`api/User/remove_product_from_cart/${item.cartId}`,
+                    {
+                        headers: {
+                            Authorization: "bearer " + localStorage.getItem("token")
+                        }
+                    })
+                console.log(response)
+            } catch (e) {
+                console.log(e)
             }
         }
 
@@ -100,7 +116,8 @@ createApp({
             cartItems,
             getStyleColor,
             incrementItemQuantity,
-            decrementItemQuantity
+            decrementItemQuantity,
+            removeFromCart
         }
     }
 }).mount('#openSignin')

@@ -357,6 +357,10 @@
       "PackagePath": "staticwebassets\\js\\openSigninSmall.js"
     },
     {
+      "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\shopping-bag.js",
+      "PackagePath": "staticwebassets\\js\\shopping-bag.js"
+    },
+    {
       "Id": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\signinVue.js",
       "PackagePath": "staticwebassets\\js\\signinVue.js"
     },

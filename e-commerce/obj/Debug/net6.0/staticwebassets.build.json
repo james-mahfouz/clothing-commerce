@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LZo+3gBLe8sAAtazAPEDSTksWQH6W4Fwauwnmfgk1A0=",
+  "Hash": "NnlRFMXiuzHGH+WQ8pC7/7+aWxrgroCdQPn7e6Lcw4s=",
   "Source": "e-commerce",
   "BasePath": "_content/e-commerce",
   "Mode": "Default",
@@ -1545,6 +1545,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\openSigninSmall.js"
+    },
+    {
+      "Identity": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\shopping-bag.js",
+      "SourceId": "e-commerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\",
+      "BasePath": "_content/e-commerce",
+      "RelativePath": "js/shopping-bag.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\shopping-bag.js"
     },
     {
       "Identity": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\wwwroot\\js\\signinVue.js",

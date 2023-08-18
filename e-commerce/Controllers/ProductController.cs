@@ -1,7 +1,5 @@
 ﻿using e_commerce.Data;
-using e_commerce.Models;
 using e_commerce.Requests;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

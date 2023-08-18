@@ -59,7 +59,7 @@
                         <h1>Your shoppping bag(2)</h1>
 
                         <div class="popover-content-wrapper" id="shopping-bag">
-                            <div class="shopping-bag-item" v-for="item in cartItem">
+                            <div class="shopping-bag-item" v-for="item in cartItemsSmall">
                                 <div class="shopping-bag-item-left">
                                     <img :src="item.image" alt="">
                                 </div>
@@ -68,14 +68,14 @@
                                     <h4>{{item.price}} USD</h4>
                                     <div class="color-size">
                                         <h5>color</h5>
-                                        <div :class="getStyleColor(item.color.id)"></div>
+                                        <div :class="getStyleColor(item.color.id)" class="cart-color"></div>
                                         <h5>Size</h5>
-                                        <p>34</p>
+                                        <p>{{item.size.sizeNumber}}</p>
                                     </div>
                                     <div class="shopping-bag-item-bottom-wrapper">
                                         <div class="horizontal-number-input-shopping">
                                             <span class="minus" v-on:click="decrementItemQuantity(item)">-</span>
-                                            <span class="item-number" id="shopping-item-quantity">0</span>
+                                            <span class="item-number" id="shopping-item-quantity">{{item.quantity}}</span>
                                             <span class="plus" v-on:click="incrementItemQuantity(item)">+</span>
                                         </div>
 
@@ -85,110 +85,8 @@
                                     </div>
                                 </div>
                             </div>
-                            @* <div class="shopping-bag-item">
-                            <div class="shopping-bag-item-left">
-                            <img src="assets/images/listing-item-image.png" alt="">
-                            </div>
-                            <div class="shopping-bag-item-right">
-                            <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
-                            <h4>810 USD</h4>
-                            <div class="color-size">
-                            <h5>color</h5>
-                            <div class="white"></div>
-                            <h5>Size</h5>
-                            <p>34</p>
-                            </div>
-                            <div class="shopping-bag-item-bottom-wrapper">
-                            <div class="horizontal-number-input-shopping">
-                            <span class="minus" id="shopping-remove-item">-</span>
-                            <span class="item-number" id="shopping-item-quantity">0</span>
-                            <span class="plus" id="shopping-add-item">+</span>
-                            </div>
-
-                            <div class="delete-item">
-                            <img src="assets/icons/delete.png" alt="">
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="shopping-bag-item">
-                            <div class="shopping-bag-item-left">
-                            <img src="assets/images/listing-item-image.png" alt="">
-                            </div>
-                            <div class="shopping-bag-item-right">
-                            <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
-                            <h4>810 USD</h4>
-                            <div class="color-size">
-                            <h5>color</h5>
-                            <div class="white"></div>
-                            <h5>Size</h5>
-                            <p>34</p>
-                            </div>
-                            <div class="shopping-bag-item-bottom-wrapper">
-                            <div class="horizontal-number-input-shopping">
-                            <span class="minus" id="shopping-remove-item">-</span>
-                            <span class="item-number" id="shopping-item-quantity">0</span>
-                            <span class="plus" id="shopping-add-item">+</span>
-                            </div>
-
-                            <div class="delete-item">
-                            <img src="assets/icons/delete.png" alt="">
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="shopping-bag-item">
-                            <div class="shopping-bag-item-left">
-                            <img src="assets/images/listing-item-image.png" alt="">
-                            </div>
-                            <div class="shopping-bag-item-right">
-                            <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
-                            <h4>810 USD</h4>
-                            <div class="color-size">
-                            <h5>color</h5>
-                            <div class="white"></div>
-                            <h5>Size</h5>
-                            <p>34</p>
-                            </div>
-                            <div class="shopping-bag-item-bottom-wrapper">
-                            <div class="horizontal-number-input-shopping">
-                            <span class="minus" id="shopping-remove-item">-</span>
-                            <span class="item-number" id="shopping-item-quantity">0</span>
-                            <span class="plus" id="shopping-add-item">+</span>
-                            </div>
-
-                            <div class="delete-item">
-                            <img src="assets/icons/delete.png" alt="">
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="shopping-bag-item">
-                            <div class="shopping-bag-item-left">
-                            <img src="assets/images/listing-item-image.png" alt="">
-                            </div>
-                            <div class="shopping-bag-item-right">
-                            <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
-                            <h4>810 USD</h4>
-                            <div class="color-size">
-                            <h5>color</h5>
-                            <div class="white"></div>
-                            <h5>Size</h5>
-                            <p>34</p>
-                            </div>
-                            <div class="shopping-bag-item-bottom-wrapper">
-                            <div class="horizontal-number-input-shopping">
-                            <span class="minus" id="shopping-remove-item">-</span>
-                            <span class="item-number" id="shopping-item-quantity">0</span>
-                            <span class="plus" id="shopping-add-item">+</span>
-                            </div>
-
-                            <div class="delete-item">
-                            <img src="assets/icons/delete.png" alt="">
-                            </div>
-                            </div>
-                            </div>
-                            </div> *@
+                           
+                            <script src="js/shopping-bag.js"></script>
                         </div>
 
                         <div class="shopping-bag-footer1">
@@ -394,115 +292,11 @@
                                         </div>
 
                                         <div class="delete-item">
-                                            <img src="assets/icons/delete.png" alt="">
+                                            <img src="assets/icons/delete.png" alt="" v-on:click="removeFromCart(item)">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            @* <div class="shopping-bag-item">
-                                <div class="shopping-bag-item-left">
-                                    <img src="assets/images/listing-item-image.png" alt="">
-                                </div>
-                                <div class="shopping-bag-item-right">
-                                    <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
-                                    <h4>810 USD</h4>
-                                    <div class="color-size">
-                                        <h5>color</h5>
-                                        <div class="white"></div>
-                                        <h5>Size</h5>
-                                        <p>34</p>
-                                    </div>
-                                    <div class="shopping-bag-item-bottom-wrapper">
-                                        <div class="horizontal-number-input-shopping">
-                                            <span class="minus" id="shopping-remove-item">-</span>
-                                            <span class="item-number" id="shopping-item-quantity">0</span>
-                                            <span class="plus" id="shopping-add-item">+</span>
-                                        </div>
-
-                                        <div class="delete-item">
-                                            <img src="assets/icons/delete.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shopping-bag-item">
-                                <div class="shopping-bag-item-left">
-                                    <img src="assets/images/listing-item-image.png" alt="">
-                                </div>
-                                <div class="shopping-bag-item-right">
-                                    <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
-                                    <h4>810 USD</h4>
-                                    <div class="color-size">
-                                        <h5>color</h5>
-                                        <div class="white"></div>
-                                        <h5>Size</h5>
-                                        <p>34</p>
-                                    </div>
-                                    <div class="shopping-bag-item-bottom-wrapper">
-                                        <div class="horizontal-number-input-shopping">
-                                            <span class="minus" id="shopping-remove-item">-</span>
-                                            <span class="item-number" id="shopping-item-quantity">0</span>
-                                            <span class="plus" id="shopping-add-item">+</span>
-                                        </div>
-
-                                        <div class="delete-item">
-                                            <img src="assets/icons/delete.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shopping-bag-item">
-                                <div class="shopping-bag-item-left">
-                                    <img src="assets/images/listing-item-image.png" alt="">
-                                </div>
-                                <div class="shopping-bag-item-right">
-                                    <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
-                                    <h4>810 USD</h4>
-                                    <div class="color-size">
-                                        <h5>color</h5>
-                                        <div class="white"></div>
-                                        <h5>Size</h5>
-                                        <p>34</p>
-                                    </div>
-                                    <div class="shopping-bag-item-bottom-wrapper">
-                                        <div class="horizontal-number-input-shopping">
-                                            <span class="minus" id="shopping-remove-item">-</span>
-                                            <span class="item-number" id="shopping-item-quantity">0</span>
-                                            <span class="plus" id="shopping-add-item">+</span>
-                                        </div>
-
-                                        <div class="delete-item">
-                                            <img src="assets/icons/delete.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shopping-bag-item">
-                                <div class="shopping-bag-item-left">
-                                    <img src="assets/images/listing-item-image.png" alt="">
-                                </div>
-                                <div class="shopping-bag-item-right">
-                                    <h2>MARC KAIN <br /> BLAZER IN NEW WOOL BLEND</h2>
-                                    <h4>810 USD</h4>
-                                    <div class="color-size">
-                                        <h5>color</h5>
-                                        <div class="white"></div>
-                                        <h5>Size</h5>
-                                        <p>34</p>
-                                    </div>
-                                    <div class="shopping-bag-item-bottom-wrapper">
-                                        <div class="horizontal-number-input-shopping">
-                                            <span class="minus" id="shopping-remove-item">-</span>
-                                            <span class="item-number" id="shopping-item-quantity">0</span>
-                                            <span class="plus" id="shopping-add-item">+</span>
-                                        </div>
-
-                                        <div class="delete-item">
-                                            <img src="assets/icons/delete.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> *@
 
                         </div>
 
