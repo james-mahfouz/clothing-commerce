@@ -3,6 +3,8 @@ createApp({
     setup() {
         const userName = ref('')
         const userLName = ref('')
+        const totalPrice = ref(0)
+
         async function getUser() {
             try {
                 const response = await axios.get("/api/User/get_user",
@@ -41,10 +43,13 @@ createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                if (typeof response.data === 'string') {
+                    console.log(response)
+                if (typeof response.data.shoppingCartItems === 'string') {
                     cartItems.value = []
+                    totalPrice.value = 0
                 } else {
-                    cartItems.value = response.data
+                    cartItems.value = response.data.shoppingCartItems
+                    totalPrice.value = response.data.totalPrice
                 }
 
             } catch (e) {
@@ -126,7 +131,8 @@ createApp({
             getStyleColor,
             incrementItemQuantity,
             decrementItemQuantity,
-            removeFromCart
+            removeFromCart,
+            totalPrice
         }
     }
 }).mount('#openSignin')

@@ -68,7 +68,10 @@ namespace e_commerce.Controllers
             {
                 return Ok("Your Shopping cart is empty");
             }
-            return Ok(shoppingCartItems);
+
+            decimal totalPrice = shoppingCartItems.Sum(item => item.Price * item.Quantity);
+
+            return Ok(new { ShoppingCartItems = shoppingCartItems, TotalPrice = totalPrice });
         }
 
         [HttpPost("add_product_to_cart/{ProductId}"), Authorize]
