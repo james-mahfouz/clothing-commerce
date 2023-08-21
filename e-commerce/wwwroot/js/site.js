@@ -212,17 +212,3 @@ $(document).ready(function () {
 
 const bagItems = document.querySelectorAll('.shopping-bag-item');
 
-bagItems.forEach((item) => {
-    const remove_item = item.querySelector('#shopping-remove-item')
-    const add_item = item.querySelector('#shopping-add-item')
-    const item_quantity = item.querySelector('#shopping-item-quantity')
-
-    add_item.addEventListener('click', () => {
-        item_quantity.textContent = parseInt(item_quantity.textContent) + 1;
-    })
-
-    remove_item.addEventListener('click', () => {
-        item_quantity.textContent = parseInt(item_quantity.textContent) - 1;
-    })
-
-});

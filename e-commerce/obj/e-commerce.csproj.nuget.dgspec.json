@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\e-commerce.csproj": {}
+    "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\e-commerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\e-commerce.csproj": {
+    "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\e-commerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\e-commerce.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\e-commerce.csproj",
         "projectName": "e-commerce",
-        "projectPath": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\e-commerce.csproj",
-        "packagesPath": "C:\\Users\\James\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\James\\OneDrive\\Desktop\\e-commerce\\e-commerce\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\e-commerce.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\James\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

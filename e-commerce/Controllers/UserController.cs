@@ -145,9 +145,11 @@ namespace e_commerce.Controllers
         [HttpPost("remove_product_from_cart/{ProductId}"), Authorize]
         public async Task<IActionResult> RemoveFromCart(int ProductId)
         {
+            Console.WriteLine("hello from aremoving");
             try
             {
                 var cartItem = await _context.ShoppingCarts.FindAsync(ProductId);
+                Console.WriteLine(cartItem);
 
                 if (cartItem == null)
                 {

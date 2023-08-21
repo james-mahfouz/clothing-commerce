@@ -60,15 +60,16 @@ createApp({
         }
 
         async function removeFromCart(item) {
+            console.log("removing")
             try {
-                console.log(item.cartId)
+                console.log("this is the token", localStorage.getItem("token"))
                 const response = await axios.post(`api/User/remove_product_from_cart/${item.cartId}`,
                     {
                         headers: {
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                console.log(response)
+               
             } catch (e) {
                 console.log(e)
             }
