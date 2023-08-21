@@ -68,7 +68,7 @@
                                     <h4>{{item.price}} USD</h4>
                                     <div class="color-size">
                                         <h5>color</h5>
-                                        <div :class="getStyleColor(item.color.id)" class="cart-color"></div>
+                                        <div class="cart-color" :class="getStyleColor(item.color.id)"></div>
                                         <h5>Size</h5>
                                         <p>{{item.size.sizeNumber}}</p>
                                     </div>
@@ -291,8 +291,8 @@
                                             <span class="plus" v-on:click="incrementItemQuantity(item)">+</span>
                                         </div>
 
-                                        <div class="delete-item">
-                                            <img src="assets/icons/delete.png" alt="" v-on:click="removeFromCart(item)">
+                                        <div class="delete-item" v-on:click="removeFromCart(item)">
+                                            <img src="assets/icons/delete.png" alt="" >
                                         </div>
                                     </div>
                                 </div>

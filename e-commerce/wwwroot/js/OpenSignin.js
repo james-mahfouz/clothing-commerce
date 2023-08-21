@@ -41,13 +41,21 @@ createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                console.log(response)
-                cartItems.value = response.data
+                if (typeof response.data === 'string') {
+                    cartItems.value = []
+                } else {
+                    cartItems.value = response.data
+                }
+
             } catch (e) {
                 console.log(e)
             }
         }
         getShoppingCart()
+
+        document.addEventListener('cartChange', () => {
+            getShoppingCart()
+        });
 
         function incrementItemQuantity(item) {
             item.quantity++;
@@ -60,20 +68,20 @@ createApp({
         }
 
         async function removeFromCart(item) {
-            console.log("removing")
             try {
-                console.log("this is the token", localStorage.getItem("token"))
-                const response = await axios.post(`api/User/remove_product_from_cart/${item.cartId}`,
+                const response = await axios.post(`api/User/remove_product_from_cart/${item.cartId}`, {},
                     {
                         headers: {
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-               
+                getShoppingCart()
+
             } catch (e) {
                 console.log(e)
             }
         }
+
 
 
         function getStyleColor(colorID) {

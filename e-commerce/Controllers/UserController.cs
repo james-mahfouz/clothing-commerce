@@ -97,7 +97,7 @@ namespace e_commerce.Controllers
                     return BadRequest("please select a viable quantity");
                 }
                 var existingCartItem = await _context.ShoppingCarts
-                    .FirstOrDefaultAsync(cart => cart.Order.UserID == userId && cart.Order.isBought==false && cart.ProductStyleID == ProductId);
+                    .FirstOrDefaultAsync(cart => cart.Order.UserID == userId && cart.Order.isBought==false && cart.ProductStyleID == existingProductStyle.ID);
 
                 if (existingCartItem != null)
                 {

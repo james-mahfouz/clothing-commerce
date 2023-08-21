@@ -151,7 +151,8 @@ const app = createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                console.log(response)
+                const cartChangeEvent = new CustomEvent('cartChange');
+                document.dispatchEvent(cartChangeEvent);
             } catch (e) {
                 console.log(e)
             }
