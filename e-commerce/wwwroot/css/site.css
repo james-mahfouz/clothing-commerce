@@ -346,6 +346,22 @@ button {
                     font-size: 14px;
                 }
 
+.cart-items-number{
+    position: absolute;
+    right: 453px;
+    top: 61px;
+    background-color: #000;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    font-size: 9px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 .popover-content {
     display: none;
     position: absolute;
