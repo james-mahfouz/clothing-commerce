@@ -32,7 +32,6 @@ namespace e_commerce.Controllers
                 query = query.Where(p => request.BrandID.Contains(p.BrandID));
             }
 
-
             if (request.ColorID != 0)
             {
                 query = query.Where(p => p.ProductStyles.Any(ps => ps.ColorID == request.ColorID));
@@ -63,6 +62,10 @@ namespace e_commerce.Controllers
                 query = query.Where(p => request.MaterialID.Contains(p.MaterialID));
             }
 
+            query = query.Where(p =>
+            p.ProductStyles.Any(ps => ps.Color != null) &&
+            p.ProductStyles.Any(ps => ps.Size != null));
+
             var filteredProducts = query.Select(p => new
             {
                 ProductID = p.Id,
@@ -73,8 +76,13 @@ namespace e_commerce.Controllers
                 Price = p.Price,
                 New = p.New,
                 Sale = p.Sale,
-                itemColor = p.ProductStyles.Where(s => s.ProductID == p.Id).Select(s=> s.Color).ToList(),
-                itemSize = p.ProductStyles.Where(s => s.ProductID == p.Id).Select(s => s.Size).ToList(),
+                itemColor = p.ProductStyles.Where(s => s.ProductID == p.Id).Select(s => s.Color).ToList(),
+                itemSize = p.ProductStyles
+                    .Where(s => s.ProductID == p.Id)
+                    .Select(s => s.Size)
+                    .Distinct()
+                    .OrderBy(s => s)
+                    .ToList(),
                 shoppingCartData = new
                 {
                     Quantity = 0
@@ -82,6 +90,31 @@ namespace e_commerce.Controllers
             }).ToList();
 
             return Ok(filteredProducts);
+        }
+
+        [HttpPost("getSizeByColor")]
+        public IActionResult GetAllProducts([FromBody] GetSizeByColorRequest request)
+        {
+            try
+            {
+                var sizes = _context.ProductStyle
+                    .Where(ps => ps.ProductID == request.ProductID &&
+                    ps.ColorID == request.ColorID)
+                    .Select(ps => new
+                    {
+                        id = ps.SizeID,
+                        SizeNumber = ps.Size.SizeNumber
+                    })
+                    .Distinct()
+                    .OrderBy(s => s.SizeNumber)
+                    .ToList();
+
+                return Ok(sizes);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

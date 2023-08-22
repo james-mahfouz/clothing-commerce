@@ -194,21 +194,4 @@ function process(event) {
 }
 
 
-$(document).ready(function () {
-    $(".popover-trigger").click(function () {
-        $(this).parent().find(".popover-content").toggle();
-    });
-
-    $(document).click(function (event) {
-        if (!$(event.target).closest(".popover-trigger, .popover-content").length) {
-            $(".popover-content").hide();
-        }
-    });
-
-    $(".popover-content").click(function (event) {
-        event.stopPropagation();
-    });
-});
-
-const bagItems = document.querySelectorAll('.shopping-bag-item');
 

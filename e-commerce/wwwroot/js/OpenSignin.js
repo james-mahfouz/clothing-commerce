@@ -3,7 +3,6 @@ createApp({
     setup() {
         const userName = ref('')
         const userLName = ref('')
-        const totalPrice = ref(0)
 
         async function getUser() {
             try {
@@ -32,9 +31,13 @@ createApp({
         function logout() {
             localStorage.removeItem("token")
             accountMenuDisplayBig.style.display = 'none';
+            loggedIn.value = false
         }
 
         cartItems = ref([])
+        const totalPrice = ref(0)
+        const loggedIn = ref(false)
+
         async function getShoppingCart() {
             try {
                 const response = await axios.get("/api/User/get_shopping_cart",
@@ -43,8 +46,8 @@ createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                    console.log(response)
-                if (typeof response.data.shoppingCartItems === 'string') {
+                    loggedIn.value = true
+                if (typeof response.data === 'string') {
                     cartItems.value = []
                     totalPrice.value = 0
                 } else {
@@ -87,7 +90,19 @@ createApp({
             }
         }
 
-
+        async function checkout() {
+            try {
+                const response = await axios.get(`api/User/checkout`,
+                    {
+                        headers: {
+                            Authorization: "bearer " + localStorage.getItem("token")
+                        }
+                    })
+                getShoppingCart()
+            } catch (e) {
+                console.log(e)
+            }
+        }
 
         function getStyleColor(colorID) {
             if (colorID == 1) {
@@ -119,8 +134,36 @@ createApp({
             } else if (colorID == 14) {
                 return "_3f1092"
             }
-
         }
+
+        $(document).ready(function () {
+            $(".popover-trigger").click(function () {
+                if (!loggedIn.value) {
+                    openSignin();
+                } else {
+                    $(this).parent().find(".popover-content").toggle();
+                }
+            });
+
+            $(document).click(function (event) {
+                if (!$(event.target).closest(".popover-trigger, .popover-content").length) {
+                    $(".popover-content").hide();
+                }
+            });
+
+            $(".popover-content").click(function (event) {
+                event.stopPropagation();
+            });
+        });
+
+        const openSignin = () => {
+            signin.style.display = 'flex'
+        }
+
+        document.addEventListener('signedIn', () => {
+            loggedIn.value = true
+        });
+
 
         return {
             userName,
@@ -132,18 +175,16 @@ createApp({
             incrementItemQuantity,
             decrementItemQuantity,
             removeFromCart,
-            totalPrice
+            totalPrice,
+            checkout
         }
     }
 }).mount('#openSignin')
 
-
-const openSignin = () => {
-    signin.style.display = 'flex'
-}
 
 const accountMenuDisplayBig = document.getElementById('account-menu-display-big');
 
 const openAccountBig = () => {
     accountMenuDisplayBig.style.display = accountMenuDisplayBig.style.display === 'block' ? 'none' : 'block';
 }
+

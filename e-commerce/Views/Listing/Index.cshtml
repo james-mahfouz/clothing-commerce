@@ -233,7 +233,7 @@
                                 <div class="item-hover-size">
                                     <h4>SIZE</h4>
                                     <div class="item-hover-size-container">
-                                        <p v-for="size in sizes" v-on:click="selectSize(item, size.id)" :class="{ 'size-selected' : item.shoppingCartData.size == size.id}">{{size.size}}</p>
+                                        <p v-for="size in item.itemSize" v-on:click="selectSize(item, size.id)" :class="{ 'size-selected' : item.shoppingCartData.size == size.id}">{{size.sizeNumber}}</p>
                                     </div>
                                 </div>
                             </div>

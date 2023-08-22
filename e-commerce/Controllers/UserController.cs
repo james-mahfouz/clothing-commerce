@@ -148,11 +148,9 @@ namespace e_commerce.Controllers
         [HttpPost("remove_product_from_cart/{ProductId}"), Authorize]
         public async Task<IActionResult> RemoveFromCart(int ProductId)
         {
-            Console.WriteLine("hello from aremoving");
             try
             {
                 var cartItem = await _context.ShoppingCarts.FindAsync(ProductId);
-                Console.WriteLine(cartItem);
 
                 if (cartItem == null)
                 {
@@ -167,6 +165,39 @@ namespace e_commerce.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"an error occured: {ex.Message}");
+            }
+        }
+
+        [HttpGet("checkout"), Authorize]
+        public async Task<IActionResult> checkout()
+        {
+            try
+            {
+
+                int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+
+                var orderToBuy = await _context.Orders.FirstOrDefaultAsync(order => order.UserID == userId && order.isBought == false);
+                if (orderToBuy == null)
+                {
+                    return NotFound("you don't have an order");
+                }
+                var orderItems = await _context.ShoppingCarts
+                    .Where(cart => cart.OrderID == orderToBuy.ID)
+                    .ToListAsync();
+
+
+                if (orderItems.Count == 0)
+                {
+                    return BadRequest("your order is empty");
+                }
+
+                orderToBuy.isBought = true;
+                await _context.SaveChangesAsync();
+                return Ok("order has been bought");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"ann error occured: {ex.Message}");
             }
         }
 

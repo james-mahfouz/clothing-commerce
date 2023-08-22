@@ -13,15 +13,7 @@ const app = createApp({
         const selectedSize = ref(null)
         const minSliderValue = Vue.ref(0);
         const maxSliderValue = Vue.ref(1500);
-        const sizes = [
-            { id: 1, size: 32 },
-            { id: 2, size: 34 },
-            { id: 3, size: 36 },
-            { id: 4, size: 38 },
-            { id: 5, size: 40 },
-            { id: 6, size: 42 },
-            { id: 8, size: 46 }
-        ]
+        
 
         Vue.onMounted(() => {
             $("#slider-range").slider({
@@ -125,8 +117,20 @@ const app = createApp({
         function selectSize(item, chosenSize) {
             item.shoppingCartData.size = chosenSize
         }
-        function selectColor(item, chosenColor) {
+        async function selectColor(item, chosenColor) {
             item.shoppingCartData.color = chosenColor
+
+            const data = {
+                productID: item.productID,
+                colorID: chosenColor
+            }
+            try {
+                const response = await axios.post("api/Product/getSizeByColor", data)
+
+                item.itemSize = response.data
+            } catch (e) {
+                console.log(e)
+            }
         }
 
         function incrementItemQuantity(item) {
@@ -205,7 +209,6 @@ const app = createApp({
             minSliderValue,
             maxSliderValue,
             getStyleColor, 
-            sizes,
             selectSize,
             selectColor,
             addToCart
@@ -214,3 +217,4 @@ const app = createApp({
 });
 
 app.mount('#listing-container');
+

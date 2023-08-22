@@ -2,7 +2,9 @@
 createApp({
     setup() {
 
-        cartItemsSmall = ref([])
+        const cartItems = ref([])
+        const totalPrice = ref(0)
+
         async function getShoppingCart() {
             try {
                 const response = await axios.get("/api/User/get_shopping_cart",
@@ -11,12 +13,23 @@ createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                cartItemsSmall.value = response.data
+                if (typeof response.data.shoppingCartItems === 'string') {
+                    cartItems.value = []
+                    totalPrice.value = 0
+                } else {
+                    cartItems.value = response.data.shoppingCartItems
+                    totalPrice.value = response.data.totalPrice
+                }
+
             } catch (e) {
                 console.log(e)
             }
         }
         getShoppingCart()
+
+        document.addEventListener('cartChange', () => {
+            getShoppingCart()
+        });
 
         function incrementItemQuantity(item) {
             item.quantity++;
@@ -27,6 +40,23 @@ createApp({
                 item.quantity--;
             }
         }
+
+        async function removeFromCart(item) {
+            try {
+                const response = await axios.post(`api/User/remove_product_from_cart/${item.cartId}`, {},
+                    {
+                        headers: {
+                            Authorization: "bearer " + localStorage.getItem("token")
+                        }
+                    })
+                    console.log(response)
+                getShoppingCart()
+
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
 
 
         function getStyleColor(colorID) {
@@ -63,10 +93,12 @@ createApp({
         }
 
         return {
-            cartItemsSmall,
+            cartItems,
             getStyleColor,
             incrementItemQuantity,
-            decrementItemQuantity
+            decrementItemQuantity,
+            removeFromCart,
+            totalPrice
         }
     }
 }).mount('#shopping-bag')

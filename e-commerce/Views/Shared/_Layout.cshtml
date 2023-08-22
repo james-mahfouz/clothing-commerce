@@ -55,11 +55,11 @@
                     <img src="assets/icons/burder-menu-icon.png" alt="" id="open-icon" style="cursor: pointer;">
                     <img src="assets/icons/noun-bag-1665853.svg" alt="" class="bag-small popover-trigger"
                          style="cursor: pointer;">
-                    <div class="popover-content">
-                        <h1>Your shoppping bag(2)</h1>
+                    <div class="popover-content" id="shopping-bag">
+                        <h1>Your shoppping bag({{cartItems.length}})</h1>
 
-                        <div class="popover-content-wrapper" id="shopping-bag">
-                            <div class="shopping-bag-item" v-for="item in cartItemsSmall">
+                        <div class="popover-content-wrapper">
+                            <div class="shopping-bag-item" v-for="item in cartItems">
                                 <div class="shopping-bag-item-left">
                                     <img :src="item.image" alt="">
                                 </div>
@@ -68,7 +68,7 @@
                                     <h4>{{item.price}} USD</h4>
                                     <div class="color-size">
                                         <h5>color</h5>
-                                        <div class="cart-color" :class="getStyleColor(item.color.id)"></div>
+                                        <div :class="getStyleColor(item.color.id)" class="cart-color"></div>
                                         <h5>Size</h5>
                                         <p>{{item.size.sizeNumber}}</p>
                                     </div>
@@ -79,24 +79,25 @@
                                             <span class="plus" v-on:click="incrementItemQuantity(item)">+</span>
                                         </div>
 
-                                        <div class="delete-item">
-                                            <img src="assets/icons/delete.png" alt="">
+                                        <div class="delete-item" v-on:click="removeFromCart(item)">
+                                            <img src="assets/icons/delete.png" alt="" >
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                           
-                            <script src="js/shopping-bag.js"></script>
+
                         </div>
 
                         <div class="shopping-bag-footer1">
                             <h2>Total</h2>
-                            <h2>1200 USD</h2>
+                            <h2>{{totalPrice}} USD</h2>
                         </div>
 
                         <div class="shopping-bag-footer2">
                             <h2>CHECKOUT</h2>
                         </div>
+
+                        <script src="js/shopping-bag.js"></script>
                     </div>
                 </div>
 
@@ -305,7 +306,7 @@
                             <h2>{{totalPrice}} USD</h2>
                         </div>
 
-                        <div class="shopping-bag-footer2">
+                        <div class="shopping-bag-footer2" style="cursor: pointer;" v-on:click="checkout()">
                             <h2>CHECKOUT</h2>
                         </div>
 
@@ -321,7 +322,7 @@
                     </div>
                     <img src="assets/icons/Icon feather-heart.svg" alt="" class="like-icon">
                     <div class="search">
-                        <input type="text" placeholder="SEARCH">
+                        <input type="text" placeholder="SEARCH" id="header-search-input">
                     </div>
                     <script src="/js/OpenSignin.js"></script>
                 </div>
