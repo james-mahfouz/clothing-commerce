@@ -160,3 +160,6 @@ function closeMenuContent() {
     header2HoverMenuUnderline.style.display = 'none';
 }
 
+window.addEventListener('load', function () {
+    document.getElementById('header-search-input').value = '';
+});
