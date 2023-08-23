@@ -24,7 +24,6 @@ createApp({
                 
                 const emailError = e?.response?.data?.errors?.Email?.[0] ?? 'An error occurred'
                 const passwordError = e?.response?.data?.errors?.Password?.[0] ?? 'An error occurred'
-                console.log(emailError, "hello", passwordError)
                 if (emailError != 'An error occurred') {
                     showErrorNotification(emailError)
                 } else if (passwordError != 'An error occurred') {
