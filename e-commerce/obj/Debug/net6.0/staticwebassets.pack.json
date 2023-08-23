@@ -349,6 +349,10 @@
       "PackagePath": "staticwebassets\\js\\index.js"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\wwwroot\\js\\intl-tel-input.js",
+      "PackagePath": "staticwebassets\\js\\intl-tel-input.js"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\wwwroot\\js\\listing.js",
       "PackagePath": "staticwebassets\\js\\listing.js"
     },
@@ -371,6 +375,10 @@
     {
       "Id": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\wwwroot\\js\\toast.js",
+      "PackagePath": "staticwebassets\\js\\toast.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.e-commerce.props",

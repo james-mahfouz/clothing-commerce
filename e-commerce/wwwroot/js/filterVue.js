@@ -57,6 +57,7 @@ const app = createApp({
                 let response = await axios.post("/api/Product/get_product", data.value);
                 items.value = response.data;
             } catch (e) {
+                showErrorNotification("couldn't fetch the product from the database")
             }
         }
         get_product()
@@ -157,8 +158,14 @@ const app = createApp({
                     })
                 const cartChangeEvent = new CustomEvent('cartChange');
                 document.dispatchEvent(cartChangeEvent);
+                showSuccessNotification("Item added successfully")
             } catch (e) {
-                console.log(e)
+                if (e.response.data == "") {
+                    showErrorNotification("You should Sign In first")
+                } else {
+                    showErrorNotification(e.response.data)
+                }
+               
             }
         }
 

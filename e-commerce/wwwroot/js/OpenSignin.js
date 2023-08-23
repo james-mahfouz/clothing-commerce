@@ -32,6 +32,7 @@ createApp({
             localStorage.removeItem("token")
             accountMenuDisplayBig.style.display = 'none';
             loggedIn.value = false
+            showSuccessNotification("Logged out successfully")
         }
 
         cartItems = ref([])
@@ -55,9 +56,7 @@ createApp({
                     totalPrice.value = response.data.totalPrice
                 }
 
-            } catch (e) {
-                console.log(e)
-            }
+            } catch (e) {}
         }
         getShoppingCart()
 
@@ -84,9 +83,9 @@ createApp({
                         }
                     })
                 getShoppingCart()
-
+                showSuccessNotification("Item Removed Succesfully")
             } catch (e) {
-                console.log(e)
+                showErrorNotification("could not remove the item from your shopping cart")
             }
         }
 
@@ -99,8 +98,9 @@ createApp({
                         }
                     })
                 getShoppingCart()
+                showSuccessNotification("Checked out successfully")
             } catch (e) {
-                console.log(e)
+                showErrorNotification("could not checkout your items")
             }
         }
 
@@ -164,6 +164,9 @@ createApp({
             loggedIn.value = true
         });
 
+        document.addEventListener('logedout', () => {
+            loggedIn.value = false
+        });
 
         return {
             userName,
@@ -176,7 +179,8 @@ createApp({
             decrementItemQuantity,
             removeFromCart,
             totalPrice,
-            checkout
+            checkout,
+            loggedIn
         }
     }
 }).mount('#openSignin')

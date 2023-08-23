@@ -25,7 +25,6 @@ createApp({
                 openAccountSmall()
 
             } catch (e) {
-                console.log(e)
                 openSignin()
             }
         }
@@ -33,6 +32,9 @@ createApp({
         function logout() {
             localStorage.removeItem("token")
             accountMenuDisplaySmall.style.display = 'none';
+            const logedout = new CustomEvent('logedout');
+            document.dispatchEvent(logedout);
+            showSuccessNotification("Logged out successfully")
         }
 
         return {

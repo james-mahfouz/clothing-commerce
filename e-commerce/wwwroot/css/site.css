@@ -11,9 +11,21 @@ h5 {
     margin: 0;
     padding: 0;
 }
+#toast-container > div {
+    opacity: 1;
+    z-index: 1000349877;
+}
 
 label.error {
     color: red;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+* {
+    scrollbar-width: none; /* For Firefox */
 }
 
 div.iti__selected-flag {
@@ -359,7 +371,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    cursor:pointer;
 }
 
 .popover-content {
@@ -1188,7 +1200,7 @@ button {
 
 .new-to-act {
     width: auto;
-    height: 572;
+    height: 572px;
     margin: 8px 151px;
     position: relative;
     background-image: url("../assets/images/new-to-act.png");
@@ -1406,7 +1418,7 @@ button {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 100000000;
+    z-index: 100;
     display: none;
     align-items: center;
     justify-content: center;
@@ -1955,6 +1967,10 @@ button {
         border-bottom-color: #fff;
         transform: translateX(-50%);
     }
+
+    .cart-items-number {
+        right: 320px;
+    }
 }
 
 @media (max-width: 1195px) {
@@ -2023,6 +2039,13 @@ button {
 
     .header-1 .info-menu {
         display: none;
+    }
+
+    .cart-items-number {
+        right:auto;
+        left: 70px;
+        height: 14px;
+        width: 14px;
     }
 
     .header-2 {

@@ -4,6 +4,7 @@ createApp({
 
         const cartItems = ref([])
         const totalPrice = ref(0)
+        const loggedIn = ref(false)
 
         async function getShoppingCart() {
             try {
@@ -13,7 +14,8 @@ createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                if (typeof response.data.shoppingCartItems === 'string') {
+                loggedIn.value = true
+                if (typeof response.data === 'string') {
                     cartItems.value = []
                     totalPrice.value = 0
                 } else {
@@ -21,9 +23,7 @@ createApp({
                     totalPrice.value = response.data.totalPrice
                 }
 
-            } catch (e) {
-                console.log(e)
-            }
+            } catch (e) {}
         }
         getShoppingCart()
 
@@ -49,15 +49,29 @@ createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                    console.log(response)
                 getShoppingCart()
-
+                showSuccessNotification("Item Removed Succesfully")
             } catch (e) {
-                console.log(e)
+                showErrorNotification("could not remove the item from your shopping cart")
+
             }
         }
 
-
+        async function checkout() {
+            try {
+                const response = await axios.get(`api/User/checkout`,
+                    {
+                        headers: {
+                            Authorization: "bearer " + localStorage.getItem("token")
+                        }
+                    })
+                const cartChangeEvent = new CustomEvent('cartChange');
+                document.dispatchEvent(cartChangeEvent);
+                showSuccessNotification("Checked out successfully")
+            } catch (e) {
+                showErrorNotification("could not checkout your items")
+            }
+        }
 
         function getStyleColor(colorID) {
             if (colorID == 1) {
@@ -89,8 +103,11 @@ createApp({
             } else if (colorID == 14) {
                 return "_3f1092"
             }
-
         }
+
+        document.addEventListener('signedIn', () => {
+            loggedIn.value = true
+        });
 
         return {
             cartItems,
@@ -98,7 +115,9 @@ createApp({
             incrementItemQuantity,
             decrementItemQuantity,
             removeFromCart,
-            totalPrice
+            totalPrice,
+            checkout,
+            loggedIn
         }
     }
 }).mount('#shopping-bag')
