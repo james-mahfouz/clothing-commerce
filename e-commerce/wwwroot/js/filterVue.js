@@ -26,15 +26,15 @@ const app = createApp({
                     $("#min-value").text(ui.values[0] + " USD");
                     $("#max-value").text(ui.values[1] + " USD");
 
-                    var minPosition = (ui.values[0] - $("#slider-range").slider("option", "min")) / ($("#slider-range").slider("option", "max") - $("#slider-range").slider("option", "min")) * 100 - 13;
+                    let minPosition = (ui.values[0] - $("#slider-range").slider("option", "min")) / ($("#slider-range").slider("option", "max") - $("#slider-range").slider("option", "min")) * 100 - 13;
                     if (minPosition < 3) {
                         minPosition = 0
                     }
-                    var maxPosition = (ui.values[1] - $("#slider-range").slider("option", "min")) / ($("#slider-range").slider("option", "max") - $("#slider-range").slider("option", "min")) * 100 - 13;
+                    let maxPosition = (ui.values[1] - $("#slider-range").slider("option", "min")) / ($("#slider-range").slider("option", "max") - $("#slider-range").slider("option", "min")) * 100 - 13;
 
                     if (maxPosition - minPosition < 26.133) {
-                        space_between = maxPosition - minPosition
-                        difference = (26.133 - space_between) / 2
+                        let space_between = maxPosition - minPosition;
+                        let difference = (26.133 - space_between) / 2;
                         maxPosition = maxPosition + difference
                         minPosition = minPosition - difference
                     }
@@ -57,7 +57,7 @@ const app = createApp({
                 let response = await axios.post("/api/Product/get_product", data.value);
                 items.value = response.data;
             } catch (e) {
-                showErrorNotification("couldn't fetch the product from the database")
+                showErrorNotification("couldn't fetch the product from the database");
             }
         }
         get_product()
@@ -150,7 +150,7 @@ const app = createApp({
 
         async function addToCart(item) {
             try {
-                const response = await axios.post(`api/User/add_product_to_cart/${item.productID}`, item.shoppingCartData,
+                await axios.post(`api/User/add_product_to_cart/${item.productID}`, item.shoppingCartData,
                     {
                         headers: {
                             Authorization: "bearer " + localStorage.getItem("token")

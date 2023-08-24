@@ -76,34 +76,30 @@
                          style="transform: rotate(0deg); transition: transform 0.5s ease;">
                 </div>
                 <div class="color-filter-content" id="color-filter-content">
-                    <div class="color-filter-row">
-                        <div class="color _fff" v-on:click="changeColor(6)" :class="{ 'selected-color': selectedColor === 6 }"></div>
-                        <div class="color _e3d4a8"></div>
-                        <div class="color _000" v-on:click="changeColor(5)" :class="{ 'selected-color': selectedColor === 5 }"></div>
-                        <div class="color _d92020" v-on:click="changeColor(1)" :class="{ 'selected-color': selectedColor === 1 }"></div>
-                        <div class="color _a60ad4" v-on:click="changeColor(7)" :class="{ 'selected-color': selectedColor === 7 }"></div>
-                        <div class="color _a8b0e3"></div>
-                        <div class="color _002bb9" v-on:click="changeColor(2)" :class="{ 'selected-color': selectedColor === 2 }"></div>
-                        <div class="color _ffbe00" v-on:click="changeColor(4)" :class="{ 'selected-color': selectedColor === 4 }"></div>
-                        <div class="color _002bb9" v-on:click="changeColor(13)" :class="{ 'selected-color': selectedColor === 13 }"></div>
-                        <div class="color _094816" v-on:click="changeColor(3)" :class="{ 'selected-color': selectedColor === 3 }"></div>
-                        <div class="color _5d400e"></div>
-                        <div class="color _ff98b4" v-on:click="changeColor(9)" :class="{ 'selected-color': selectedColor === 9 }"></div>
-                    </div>
-                    <div class="color-filter-row">
-                        <div class="color _f9b700"></div>
-                        <div class="color _21e6e0" v-on:click="changeColor(12)" :class="{ 'selected-color': selectedColor === 12 }"></div>
-                        <div class="color _6e140e"></div>
-                        <div class="color _0f3a72"></div>
-                        <div class="color _3f1092" v-on:click="changeColor(14)" :class="{ 'selected-color': selectedColor === 14 }"></div>
-                        <div class="color _4d165a"></div>
-                        <div class="color _b51919"></div>
-                        <div class="color _ff4343"></div>
-                        <div class="color _4a4a4a" v-on:click="changeColor(11)" :class="{ 'selected-color': selectedColor === 11 }"></div>
-                        <div class="color _d1d1d1"></div>
-                        <div class="color _8d6e32" v-on:click="changeColor(10)" :class="{ 'selected-color': selectedColor === 10 }"></div>
-                        <div class="color _ae7400" v-on:click="changeColor(8)" :class="{ 'selected-color': selectedColor === 8 }"></div>
-                    </div>
+                    <div class="color _fff" v-on:click="changeColor(6)" :class="{ 'selected-color': selectedColor === 6 }"></div>
+                    <div class="color _e3d4a8"></div>
+                    <div class="color _000" v-on:click="changeColor(5)" :class="{ 'selected-color': selectedColor === 5 }"></div>
+                    <div class="color _d92020" v-on:click="changeColor(1)" :class="{ 'selected-color': selectedColor === 1 }"></div>
+                    <div class="color _a60ad4" v-on:click="changeColor(7)" :class="{ 'selected-color': selectedColor === 7 }"></div>
+                    <div class="color _a8b0e3"></div>
+                    <div class="color _002bb9" v-on:click="changeColor(2)" :class="{ 'selected-color': selectedColor === 2 }"></div>
+                    <div class="color _ffbe00" v-on:click="changeColor(4)" :class="{ 'selected-color': selectedColor === 4 }"></div>
+                    <div class="color _002bb9" v-on:click="changeColor(13)" :class="{ 'selected-color': selectedColor === 13 }"></div>
+                    <div class="color _094816" v-on:click="changeColor(3)" :class="{ 'selected-color': selectedColor === 3 }"></div>
+                    <div class="color _5d400e"></div>
+                    <div class="color _ff98b4" v-on:click="changeColor(9)" :class="{ 'selected-color': selectedColor === 9 }"></div>
+                    <div class="color _f9b700"></div>
+                    <div class="color _21e6e0" v-on:click="changeColor(12)" :class="{ 'selected-color': selectedColor === 12 }"></div>
+                    <div class="color _6e140e"></div>
+                    <div class="color _0f3a72"></div>
+                    <div class="color _3f1092" v-on:click="changeColor(14)" :class="{ 'selected-color': selectedColor === 14 }"></div>
+                    <div class="color _4d165a"></div>
+                    <div class="color _b51919"></div>
+                    <div class="color _ff4343"></div>
+                    <div class="color _4a4a4a" v-on:click="changeColor(11)" :class="{ 'selected-color': selectedColor === 11 }"></div>
+                    <div class="color _d1d1d1"></div>
+                    <div class="color _8d6e32" v-on:click="changeColor(10)" :class="{ 'selected-color': selectedColor === 10 }"></div>
+                    <div class="color _ae7400" v-on:click="changeColor(8)" :class="{ 'selected-color': selectedColor === 8 }"></div>
                 </div>
             </div>
 
@@ -115,18 +111,18 @@
                 </div>
 
                 <div class="size-filter-content" id="size-filter-content">
-                    <div class="size-filter-column">
+                    @* <div class="size-filter-column"> *@
                         <p v-on:click="changeSize(1)" :class="{ 'selected-size': selectedSize === 1 }">32</p>
                         <p v-on:click="changeSize(3)" :class="{ 'selected-size': selectedSize === 3 }">36</p>
                         <p v-on:click="changeSize(5)" :class="{ 'selected-size': selectedSize === 5 }">40</p>
                         <p v-on:click="changeSize(8)" :class="{ 'selected-size': selectedSize === 8 }">46</p>
-                    </div>
-                    <div class="size-filter-column">
+                    @* </div> *@
+                    @* <div class="size-filter-column"> *@
                         <p v-on:click="changeSize(2)" :class="{ 'selected-size': selectedSize === 2 }">34</p>
                         <p v-on:click="changeSize(4)" :class="{ 'selected-size': selectedSize === 4 }">38</p>
                         <p v-on:click="changeSize(6)" :class="{ 'selected-size': selectedSize === 6 }">42</p>
                         <p>One Size</p>
-                    </div>
+                    @* </div> *@
                 </div>
             </div>
 

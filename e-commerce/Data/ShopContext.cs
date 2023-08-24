@@ -27,6 +27,7 @@ namespace e_commerce.Data
         public DbSet<ProductLook> ProductLooks { get; set; }
         public DbSet<ProductStyle> ProductStyle { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Material> Materials { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

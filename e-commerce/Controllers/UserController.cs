@@ -29,7 +29,6 @@ namespace e_commerce.Controllers
         [HttpGet("get_user"), Authorize]
         public async Task<IActionResult> GetUser()
         {
-            string? userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             string? userName = User.FindFirst(ClaimTypes.Name)?.Value;
             string lastName = User.FindFirst(ClaimTypes.Surname).Value;
 

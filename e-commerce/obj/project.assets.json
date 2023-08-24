@@ -4776,11 +4776,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\e-commerce.csproj",
+      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Desktop\\clothing-commerce\\e-commerce\\e-commerce.csproj",
       "projectName": "e-commerce",
-      "projectPath": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\e-commerce.csproj",
+      "projectPath": "C:\\Users\\User\\OneDrive\\Desktop\\clothing-commerce\\e-commerce\\e-commerce.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\clothing-commerce\\e-commerce\\obj\\",
+      "outputPath": "C:\\Users\\User\\OneDrive\\Desktop\\clothing-commerce\\e-commerce\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

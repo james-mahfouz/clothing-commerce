@@ -1,7 +1,9 @@
 ﻿using e_commerce.Data;
 using e_commerce.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace e_commerce.Controllers
 {
@@ -37,9 +39,9 @@ namespace e_commerce.Controllers
                 query = query.Where(p => p.ProductStyles.Any(ps => ps.ColorID == request.ColorID));
             }
 
-            if (!string.IsNullOrEmpty(request.Category))
+            if (request.CategoryID != 0 )
             {
-                query = query.Where(p => p.ProductCategories.Any(pc => pc.Category.Title == request.Category));
+                query = query.Where(p => p.ProductCategories.Any(pc => pc.Category.Id == request.CategoryID));
             }
 
             if (request.SizeID != 0)
@@ -115,6 +117,81 @@ namespace e_commerce.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpGet("get_categories")]
+        public async Task<ActionResult> GetCategories()
+        {
+           
+            var categories = await _context.Categories
+                .Select(cat => new
+                {
+                    id = cat.Id,
+                    title = cat.Title
+                })
+                .ToListAsync();
+
+            return Ok(categories);
+        }
+
+        [HttpGet("get_brand")]
+        public async Task<ActionResult> GetBrand()
+        {
+
+            var brands = await _context.Brands
+                .Select(b => new
+                {
+                    id = b.ID,
+                    title = b.Title
+                })
+                .ToListAsync();
+
+            return Ok(brands);
+        }
+
+        [HttpGet("get_colors")]
+        public async Task<ActionResult> GetColor()
+        {
+
+            var colors = await _context.Colors
+                .Select(c => new
+                {
+                    id = c.ID,
+                    title = c.ColorName
+                })
+                .ToListAsync();
+
+            return Ok(colors);
+        }
+
+        [HttpGet("get_size")]
+        public async Task<ActionResult> GetSize()
+        {
+
+            var sizes = await _context.Sizes
+                .Select(s => new
+                {
+                    id = s.ID,
+                    title = s.SizeNumber
+                })
+                .ToListAsync();
+
+            return Ok(sizes);
+        }
+
+        [HttpGet("get_material")]
+        public async Task<ActionResult> GetMaterial()
+        {
+
+            var materials = await _context.Materials
+                .Select(s => new
+                {
+                    id = s.ID,
+                    title = s.Title
+                })
+                .ToListAsync();
+
+            return Ok(materials);
         }
     }
 }

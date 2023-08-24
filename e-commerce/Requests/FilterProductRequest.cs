@@ -4,7 +4,7 @@ namespace e_commerce.Requests
 {
     public class FilterProductRequest
     {
-        public string Category { get; set; } = string.Empty;
+        public int CategoryID { get; set; } 
         public List<int>? BrandID { get; set; }
         public int ColorID { get; set; }
         public int SizeID { get; set; }
