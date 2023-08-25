@@ -47,7 +47,8 @@ createApp({
                             Authorization: "bearer " + localStorage.getItem("token")
                         }
                     })
-                    loggedIn.value = true
+                loggedIn.value = true
+                console.log(response)
                 if (typeof response.data === 'string') {
                     cartItems.value = []
                     totalPrice.value = 0
@@ -104,38 +105,6 @@ createApp({
             }
         }
 
-        function getStyleColor(colorID) {
-            if (colorID == 1) {
-                return "_d92020"
-            } else if (colorID == 2) {
-                return "_002bb9"
-            } else if (colorID == 3) {
-                return "_094816"
-            } else if (colorID == 4) {
-                return "_ffbe00"
-            } else if (colorID == 5) {
-                return "_000"
-            } else if (colorID == 6) {
-                return "_fff"
-            } else if (colorID == 7) {
-                return "_a60ad4"
-            } else if (colorID == 8) {
-                return "_ae7400"
-            } else if (colorID == 9) {
-                return "_ff98b4"
-            } else if (colorID == 10) {
-                return "_8d6e32"
-            } else if (colorID == 11) {
-                return "_4a4a4a"
-            } else if (colorID == 12) {
-                return "_21e6e0"
-            } else if (colorID == 13) {
-                return "_002bb9"
-            } else if (colorID == 14) {
-                return "_3f1092"
-            }
-        }
-
         $(document).ready(function () {
             $(".popover-trigger").click(function () {
                 if (!loggedIn.value) {
@@ -174,7 +143,6 @@ createApp({
             getUser,
             logout,
             cartItems,
-            getStyleColor,
             incrementItemQuantity,
             decrementItemQuantity,
             removeFromCart,

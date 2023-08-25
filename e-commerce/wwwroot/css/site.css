@@ -2974,35 +2974,31 @@ button {
                 transition: max-height 0.3s ease-in-out;
             }
 
-/*                .listing-container .listing-left .filter .size-filter .size-filter-content .size-filter-column {
+
+
+                .listing-container .listing-left .filter .size-filter .size-filter-content p {
+                    width: 116px;
+                    height: 33px;
+                    font-size: 12px;
+                    font-weight: 500;
+                    border: rgb(112, 112, 112) solid 1px;
                     display: flex;
-                    flex-direction: column;
-                    gap: 6px;
-                }*/
+                    justify-content: center;
+                    align-items: center;
+                    transition: all 0.3s ease-in-out;
+                }
 
-                    .listing-container .listing-left .filter .size-filter .size-filter-content  p {
-                        width: 116px;
-                        height: 33px;
-                        font-size: 12px;
-                        font-weight: 500;
-                        border: rgb(112, 112, 112) solid 1px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        transition: all 0.3s ease-in-out;
-                    }
-
-                        .listing-container .listing-left .filter .size-filter .size-filter-content p:hover {
-                            background-color: #000;
-                            color: #fff;
-                            cursor: pointer;
-                        }
-
-                    .listing-container .listing-left .filter .size-filter .size-filter-content  .selected-size {
+                    .listing-container .listing-left .filter .size-filter .size-filter-content p:hover {
                         background-color: #000;
                         color: #fff;
                         cursor: pointer;
                     }
+
+                .listing-container .listing-left .filter .size-filter .size-filter-content .selected-size {
+                    background-color: #000;
+                    color: #fff;
+                    cursor: pointer;
+                }
 
         .listing-container .listing-left .filter .price-filter {
             display: flex;

@@ -157,7 +157,8 @@ namespace e_commerce.Controllers
                 .Select(c => new
                 {
                     id = c.ID,
-                    title = c.ColorName
+                    title = c.ColorName,
+                    hex = c.ColorHex
                 })
                 .ToListAsync();
 

@@ -18,7 +18,7 @@ sort_by_header.addEventListener('click', () => {
         sortByContent.style.maxHeight = ''
         open_sort_by.style.transform = ''
     } else {
-        sortByContent.style.maxHeight = '335px'
+        sortByContent.style.maxHeight = '2000px'
         open_sort_by.style.transform = 'rotate(180deg)'
     }
 })
@@ -33,7 +33,7 @@ brand_header.addEventListener('click', () => {
         brandFilterContent.style.maxHeight = ''
         open_brand_filter.style.transform = ''
     } else {
-        brandFilterContent.style.maxHeight = '90px'
+        brandFilterContent.style.maxHeight = '2000px'
         open_brand_filter.style.transform = 'rotate(180deg)'
     }
 })
@@ -48,7 +48,7 @@ color_header.addEventListener('click', () => {
         color_filter_Content.style.maxHeight = ''
         open_color_filter.style.transform = ''
     } else {
-        color_filter_Content.style.maxHeight = '90px'
+        color_filter_Content.style.maxHeight = '2000px'
         open_color_filter.style.transform = 'rotate(180deg)'
     }
 })

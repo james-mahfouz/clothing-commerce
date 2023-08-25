@@ -5,7 +5,7 @@ const app = createApp({
             brandID: [],
             materialID: [],
             minPrice: 0,
-            maxPrice:1500
+            maxPrice: 10000
         })
         const items = ref([]);
         const selectedCategory = ref(null)
@@ -13,19 +13,45 @@ const app = createApp({
         const selectedSize = ref(null)
         const minSliderValue = Vue.ref(0);
         const maxSliderValue = Vue.ref(1500);
-        
+        const categories = ref([])
+        const brands = ref([])
+        const colors = ref([])
+        const sizes = ref([])
+        const materials = ref([])
+        let filteredbyPrice = ref(false)
 
-        Vue.onMounted(() => {
+        async function get_product() {
+            try {
+                let response = await axios.post("/api/Product/get_product", data.value);
+                items.value = response.data;
+                if (!filteredbyPrice.value) {
+                    getHighestPrice()
+                }
+            } catch (e) {
+                showErrorNotification("couldn't fetch the product from the database");
+            }
+        }
+        get_product()
+
+        watch(data.value, get_product)
+        
+        function getHighestPrice() {
+            let highestPrice = 0
+            for (const item of items.value) {
+                if (item.price > highestPrice) {
+                    highestPrice = item.price + 1
+                }
+            }
             $("#slider-range").slider({
                 range: true,
                 min: 0,
-                max: 1500,
-                values: [0, 1500],
+                max: highestPrice,
+                values: [0, highestPrice],
                 slide: function (event, ui) {
+                    filteredbyPrice.value = true
                     $("#amount").val(ui.values[0] + " USD - " + ui.values[1] + " USD");
                     $("#min-value").text(ui.values[0] + " USD");
                     $("#max-value").text(ui.values[1] + " USD");
-
                     let minPosition = (ui.values[0] - $("#slider-range").slider("option", "min")) / ($("#slider-range").slider("option", "max") - $("#slider-range").slider("option", "min")) * 100 - 13;
                     if (minPosition < 3) {
                         minPosition = 0
@@ -38,7 +64,7 @@ const app = createApp({
                         maxPosition = maxPosition + difference
                         minPosition = minPosition - difference
                     }
-                    
+
                     $("#min-value").css("left", minPosition + "%");
                     $("#max-value").css("left", maxPosition + "%");
                     data.value.minPrice = ui.values[0]
@@ -50,32 +76,73 @@ const app = createApp({
 
             $("#min-value").text($("#slider-range").slider("values", 0) + " USD");
             $("#max-value").text($("#slider-range").slider("values", 1) + " USD");
-        });
+        }
 
-        async function get_product() {
+        async function getCategories() {
             try {
-                let response = await axios.post("/api/Product/get_product", data.value);
-                items.value = response.data;
+                const response = await axios.get("api/Product/get_categories")
+                categories.value = response.data
             } catch (e) {
-                showErrorNotification("couldn't fetch the product from the database");
+                showErrorNotification("unexpected Error happened")
             }
         }
-        get_product()
+        getCategories()
 
-        watch(data.value, get_product)
+        async function getBrands() {
+            try {
+                const response = await axios.get("api/Product/get_brand")
+                brands.value = response.data
+            } catch (e) {
+                showErrorNotification("unexpected Error happened")
+            }
+        }
+        getBrands()
+
+        async function getColors() {
+            try {
+                const response = await axios.get("api/Product/get_colors")
+                colors.value = response.data
+            } catch (e) {
+                showErrorNotification("unexpected Error happened")
+            }
+        }
+        getColors()
+
+        async function getSizes() {
+            try {
+                const response = await axios.get("api/Product/get_size")
+                sizes.value = response.data
+            } catch (e) {
+                showErrorNotification("unexpected Error happened")
+            }
+        }
+        getSizes()
+
+        async function getMaterials() {
+            try {
+                const response = await axios.get("api/Product/get_material")
+                materials.value = response.data
+            } catch (e) {
+                showErrorNotification("unexpected Error happened")
+            }
+        }
+        getMaterials()
 
         function changeCategory(category) {
-            if (data.value.Category == category) {
-                data.value.Category = undefined;
+            filteredbyPrice.value = false
+            data.value.maxPrice = 10000
+            if (data.value.CategoryID == category) {
+                data.value.CategoryID = undefined;
                 selectedCategory.value = null;
             } else {
-                data.value.Category = category;
+                data.value.CategoryID = category;
                 selectedCategory.value = category;
             }
-
         }
 
         function changeBrand(brandId) {
+            filteredbyPrice.value = false
+            data.value.maxPrice = 10000
             for (let i = 0; i < data.value.brandID.length; i++) {
                 if (data.value.brandID[i] == brandId) {
                     data.value.brandID.splice(i, 1)
@@ -86,6 +153,8 @@ const app = createApp({
         }
 
         function changeColor(colorId) {
+            filteredbyPrice.value = false
+            data.value.maxPrice = 10000
             if (data.value.ColorID == colorId) {
                 data.value.ColorID = undefined
                 selectedColor.value = null
@@ -96,6 +165,8 @@ const app = createApp({
         }
 
         function changeSize(sizeId) {
+            filteredbyPrice.value = false
+            data.value.maxPrice = 10000
             if (data.value.SizeID == sizeId) {
                 data.value.SizeID = undefined
                 selectedSize.value = null
@@ -106,6 +177,8 @@ const app = createApp({
         }
 
         function changeMaterial(materialId) {
+            filteredbyPrice.value = false
+            data.value.maxPrice = 10000
             for (let i = 0; i < data.value.materialID.length; i++) {
                 if (data.value.materialID[i] == materialId) {
                     data.value.materialID.splice(i, 1)
@@ -165,39 +238,7 @@ const app = createApp({
                 } else {
                     showErrorNotification(e.response.data)
                 }
-               
-            }
-        }
 
-        function getStyleColor(colorID) {
-            if (colorID == 1) {
-                return "_d92020"
-            } else if (colorID == 2) {
-                return "_002bb9"
-            } else if (colorID == 3) {
-                return "_094816"
-            } else if (colorID == 4) {
-                return "_ffbe00"
-            } else if (colorID == 5) {
-                return "_000"
-            } else if (colorID == 6) {
-                return "_fff"
-            } else if (colorID == 7) {
-                return "_a60ad4"
-            } else if (colorID == 8) {
-                return "_ae7400"
-            } else if (colorID == 9) {
-                return "_ff98b4"
-            } else if (colorID == 10) {
-                return "_8d6e32"
-            } else if (colorID == 11) {
-                return "_4a4a4a"
-            } else if (colorID == 12) {
-                return "_21e6e0"
-            } else if (colorID == 13) {
-                return "_002bb9"
-            } else if (colorID == 14) {
-                return "_3f1092"
             }
         }
 
@@ -215,10 +256,14 @@ const app = createApp({
             selectedSize,
             minSliderValue,
             maxSliderValue,
-            getStyleColor, 
             selectSize,
             selectColor,
-            addToCart
+            addToCart,
+            categories,
+            brands,
+            colors,
+            sizes,
+            materials
         };
     }
 });

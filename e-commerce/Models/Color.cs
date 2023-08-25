@@ -7,6 +7,7 @@ namespace e_commerce.Models
     {
         public int ID { get; set; }
         public string? ColorName { get; set; }
+        public string ColorHex { get; set; }
         public ICollection<ProductStyle>? ProductStyles { get; set; }
     }
 }
