@@ -48,7 +48,6 @@ createApp({
                         }
                     })
                 loggedIn.value = true
-                console.log(response)
                 if (typeof response.data === 'string') {
                     cartItems.value = []
                     totalPrice.value = 0
